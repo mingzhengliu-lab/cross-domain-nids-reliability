@@ -1,0 +1,66 @@
+{
+  "target": "ton",
+  "source_seed": 1234,
+  "runner_version": "v2_exact_quantiles",
+  "target_labels_loaded": false,
+  "prediction_sha256": "787c2375cb409e409dc2db15b99402d7fa4b4b999349288c5981714631f37868",
+  "dependencies_start": {
+    "CODE\\experiment_low_label\\run_qtransport_fair_cpu_v2.py": "0ce3980004485306dde389488843287b812f39a681c07e1ece47491f3b28963e",
+    "CODE\\common\\nidsbed\\datasets.py": "cf1592948f92ffd7a6d0276e85700316940d6dfa5a371dddeaec86a26d1a008a",
+    "frozen_v1_lineage": "6b51ff9ab82c457400e10f0939b1ddaaa321e8dd6f850b31e68fb9f44b4ae4b7"
+  },
+  "fit_audit": {
+    "source_erm": {
+      "n_iter": 27,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "source_raw39_lr": {
+      "n_iter": 14,
+      "convergence_warning": false,
+      "feature_count": 39
+    },
+    "q_pooled_inductive": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_unsw": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_cic": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_bot": {
+      "n_iter": 9,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_pooled_transductive": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_unsw": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_cic": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_bot": {
+      "n_iter": 9,
+      "convergence_warning": false,
+      "feature_count": 117
+    }
+  },
+  "quantile_policy": "exact_full_sample_no_cap_no_rng",
+  "source_indices_sha256": "eb471316b2e48f7efcb522e4a02fc3c957556680da8cf4f7ef902d3dbd96d6d8"
+}

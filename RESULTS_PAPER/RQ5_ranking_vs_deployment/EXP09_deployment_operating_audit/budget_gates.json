@@ -1,0 +1,699 @@
+{
+  "protocol": "nfv2_target_label_budget_confirmation_v1",
+  "rank_floor": 0.7,
+  "deployment_rule": "mean target FPR <= 0.05 and mean target TPR >= 0.20 in at least 3 of 4 domains at source-selected 1% FPR threshold",
+  "budgets": {
+    "0": {
+      "full_ft": {
+        "n_rank_targets": 0,
+        "rank_targets": [],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": false,
+        "deployment_targets": [],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 0,
+        "rank_targets": [],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": false,
+        "deployment_targets": [],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      }
+    },
+    "10": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.49388558579097125,
+            "group_auroc": 0.7769839428957002
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.8390267139261035,
+            "group_auroc": 0.8678025365758525
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.8191107233648366,
+            "group_auroc": 0.8180372898053652
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.5777028240260683,
+            "group_auroc": 0.6785676755914819
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": false,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.22067718401197225,
+            "tpr": 0.21640211640211637,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.27861285663513374,
+            "tpr": 0.7805292792792792,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.26388030490317266,
+            "tpr": 0.799979398434281,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.103553611175071,
+            "tpr": 0.14521290275175427,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.5178902887601522,
+            "group_auroc": 0.7767898328560124
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9348467672942786,
+            "group_auroc": 0.9293784008782999
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9500274585415771,
+            "group_auroc": 0.9237600229552501
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.6123378556305978,
+            "group_auroc": 0.6705889531175858
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": false,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.20020508130503767,
+            "tpr": 0.17037037037037037,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.006829851107431017,
+            "tpr": 0.37765765765765763,
+            "passes": true
+          },
+          {
+            "target": "bot",
+            "fpr": 0.17866192830655128,
+            "tpr": 0.9549649773382778,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.020462046204620457,
+            "tpr": 0.012856827951063595,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 1,
+        "deployment_gate": false
+      }
+    },
+    "20": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.6452192649588948,
+            "group_auroc": 0.845222241730926
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.8954659503001335,
+            "group_auroc": 0.9174945033047465
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9230956117328081,
+            "group_auroc": 0.9234987770853902
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.6065260214963131,
+            "group_auroc": 0.7265895161503468
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.14644745137979534,
+            "tpr": 0.28497354497354505,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.24727962916751742,
+            "tpr": 0.8403828828828829,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.18014009064688918,
+            "tpr": 0.8684744540585084,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.1059124517102873,
+            "tpr": 0.17140416620742865,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.7057332171704491,
+            "group_auroc": 0.8416943638160427
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9381311589373451,
+            "group_auroc": 0.9334872936762972
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9304120833594356,
+            "group_auroc": 0.9493217751055288
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.6459204965285694,
+            "group_auroc": 0.7447250758669689
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.14734953198506234,
+            "tpr": 0.27855379188712526,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.00693117972217811,
+            "tpr": 0.3618693693693693,
+            "passes": true
+          },
+          {
+            "target": "bot",
+            "fpr": 0.18508961681087763,
+            "tpr": 0.9283271528636178,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.004978637398623583,
+            "tpr": 0.007972372239979427,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 1,
+        "deployment_gate": false
+      }
+    },
+    "50": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.7163214153102814,
+            "group_auroc": 0.8115468142847517
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.8377650103229294,
+            "group_auroc": 0.8585440332341333
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.8828674650298608,
+            "group_auroc": 0.8965859827886281
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.6457532579619849,
+            "group_auroc": 0.7868460730084643
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.044800565359273306,
+            "tpr": 0.1697354497354497,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.2164106984868764,
+            "tpr": 0.6524887387387388,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.1555830243098475,
+            "tpr": 0.7868922538112897,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.04699772302811673,
+            "tpr": 0.09988610896800025,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.7812186321629763,
+            "group_auroc": 0.8293117752619954
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.8769527496065289,
+            "group_auroc": 0.8864005072978343
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.920202850657302,
+            "group_auroc": 0.9106732155879863
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.6689271806346776,
+            "group_auroc": 0.7551306839182785
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.027274427885514704,
+            "tpr": 0.21671957671957673,
+            "passes": true
+          },
+          {
+            "target": "cic",
+            "fpr": 0.004145399000325104,
+            "tpr": 0.09005630630630626,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.021420477956324655,
+            "tpr": 0.47936753193242687,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.006165732852354973,
+            "tpr": 0.01037694257687641,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 2,
+        "deployment_gate": false
+      }
+    },
+    "100": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.8563760285087355,
+            "group_auroc": 0.9018025901825993
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9211984289108646,
+            "group_auroc": 0.930537236596525
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9564074647427376,
+            "group_auroc": 0.9647091927374021
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.689225822904996,
+            "group_auroc": 0.828833839367332
+          }
+        ],
+        "all_targets_row_ge_floor": false,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.05169434571442423,
+            "tpr": 0.30412698412698413,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.11379203436098694,
+            "tpr": 0.4879391891891892,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.07179130613926656,
+            "tpr": 0.8227595797280594,
+            "passes": false
+          },
+          {
+            "target": "ton",
+            "fpr": 0.015452708061503801,
+            "tpr": 0.09802711341342439,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 0,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.861327467415611,
+            "group_auroc": 0.9126728209145355
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9413117555550378,
+            "group_auroc": 0.934928294019638
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9601371152851775,
+            "group_auroc": 0.9644183379987207
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.7044245386734199,
+            "group_auroc": 0.8159924289357974
+          }
+        ],
+        "all_targets_row_ge_floor": true,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.05384215667934564,
+            "tpr": 0.30649029982363307,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.0012008197031222413,
+            "tpr": 0.14965090090090086,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.04417490729295422,
+            "tpr": 0.6756901524515863,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.0035715199426919206,
+            "tpr": 0.027234652264961932,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 1,
+        "deployment_gate": false
+      }
+    },
+    "500": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.9806492291103572,
+            "group_auroc": 0.9764249840814793
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9528132789841632,
+            "group_auroc": 0.9538105075061539
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9953351783942161,
+            "group_auroc": 0.9982452489750367
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.7938503494668544,
+            "group_auroc": 0.929992839781405
+          }
+        ],
+        "all_targets_row_ge_floor": true,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.0013662849105886773,
+            "tpr": 0.2805643738977072,
+            "passes": true
+          },
+          {
+            "target": "cic",
+            "fpr": 0.016100663173098,
+            "tpr": 0.16501126126126126,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.008920477956324656,
+            "tpr": 0.7953646477132262,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.006150382480108433,
+            "tpr": 0.09285058231382488,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 2,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.9851931810979291,
+            "group_auroc": 0.9791225396269871
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9522111156039323,
+            "group_auroc": 0.9514106599447028
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9924975972134793,
+            "group_auroc": 0.9975091264098357
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.7830926330363691,
+            "group_auroc": 0.9305911331885273
+          }
+        ],
+        "all_targets_row_ge_floor": true,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.0007759833163586658,
+            "tpr": 0.13269841269841268,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.00010132861474708328,
+            "tpr": 0.10992117117117119,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.0040482076637823865,
+            "tpr": 0.8959723939019365,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.0005781973546191757,
+            "tpr": 0.013483228627061954,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 1,
+        "deployment_gate": false
+      }
+    },
+    "1000": {
+      "full_ft": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.9966536174045196,
+            "group_auroc": 0.9838237881909891
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9652961751820103,
+            "group_auroc": 0.9572139403334657
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9963558796174627,
+            "group_auroc": 0.9989965986276396
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.8050694974441581,
+            "group_auroc": 0.9518956181126567
+          }
+        ],
+        "all_targets_row_ge_floor": true,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.00041154829456877006,
+            "tpr": 0.1401410934744268,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.01791550403423998,
+            "tpr": 0.2047184684684685,
+            "passes": true
+          },
+          {
+            "target": "bot",
+            "fpr": 0.0061341161928306015,
+            "tpr": 0.9586423568191182,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.0032286949625194732,
+            "tpr": 0.10235313567728423,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 2,
+        "deployment_gate": false
+      },
+      "target_only": {
+        "n_rank_targets": 4,
+        "rank_targets": [
+          {
+            "target": "unsw",
+            "row_auroc": 0.9964204539934969,
+            "group_auroc": 0.9835599703963462
+          },
+          {
+            "target": "cic",
+            "row_auroc": 0.9681017972953557,
+            "group_auroc": 0.9581777200398075
+          },
+          {
+            "target": "bot",
+            "row_auroc": 0.9972678534276268,
+            "group_auroc": 0.9990016588840614
+          },
+          {
+            "target": "ton",
+            "row_auroc": 0.7877273844383764,
+            "group_auroc": 0.9503446442537591
+          }
+        ],
+        "all_targets_row_ge_floor": true,
+        "all_targets_group_ge_floor": true,
+        "deployment_targets": [
+          {
+            "target": "unsw",
+            "fpr": 0.00024249478636206344,
+            "tpr": 0.0809876543209876,
+            "passes": false
+          },
+          {
+            "target": "cic",
+            "fpr": 0.00014972437104419995,
+            "tpr": 0.1218806306306306,
+            "passes": false
+          },
+          {
+            "target": "bot",
+            "fpr": 0.003105686032138393,
+            "tpr": 0.9515966213432221,
+            "passes": true
+          },
+          {
+            "target": "ton",
+            "fpr": 0.00026095632819094465,
+            "tpr": 0.0169109812998273,
+            "passes": false
+          }
+        ],
+        "deployment_pass_count": 1,
+        "deployment_gate": false
+      }
+    }
+  }
+}

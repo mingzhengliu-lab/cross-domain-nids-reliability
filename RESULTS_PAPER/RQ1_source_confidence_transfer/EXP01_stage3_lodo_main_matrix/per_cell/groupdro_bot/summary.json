@@ -1,0 +1,113 @@
+{
+  "method": "groupdro",
+  "algorithm_metadata": {
+    "display_name": "GroupDRO",
+    "paper_family": "Group Distributionally Robust Optimization",
+    "implementation_variant": "source-domain groups with exponentiated weights",
+    "fidelity": "benchmark implementation",
+    "claim_scope": "Groups are source domains in the LODO protocol, selected without target-domain data.",
+    "method": "groupdro",
+    "canonical_method": "groupdro"
+  },
+  "target": "bot",
+  "hp_id": 7,
+  "hparams": {
+    "batch_size": 4096,
+    "hidden": 256,
+    "feat_dim": 64,
+    "lr": 0.003,
+    "weight_decay": 0.001,
+    "dropout": 0.2,
+    "groupdro_eta": 0.01
+  },
+  "selection_metric": "val_auroc_macro",
+  "early_stop_metric": "val_auroc_macro",
+  "search_seeds": [
+    42,
+    123
+  ],
+  "n_search_seeds_success": 2,
+  "search_selection_metric_value": 0.9836506878424889,
+  "required_final_artifacts": [
+    "checkpoint.pt",
+    "target_scores.npy",
+    "target_labels.npy",
+    "target_unique_weights.npy",
+    "source_scores.npy",
+    "source_labels.npy",
+    "source_X_sample.npy",
+    "target_logits.npy",
+    "target_scores_calibrated.npy",
+    "source_val_logits.npy",
+    "source_val_scores.npy",
+    "source_val_scores_calibrated.npy",
+    "source_val_labels.npy",
+    "source_val_unique_weights.npy",
+    "calibration.json"
+  ],
+  "n_seeds": 3,
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "in_attack_f1_mean": 0.8171063024400581,
+  "in_attack_f1_std": 0.010530865963521771,
+  "cross_attack_f1_mean": 0.13627179040963286,
+  "cross_attack_f1_std": 0.11677505981242772,
+  "in_auroc_mean": 0.9100749943337507,
+  "in_auroc_std": 0.023068891113143065,
+  "cross_auroc_mean": 0.37471853629286905,
+  "cross_auroc_std": 0.1699005107182177,
+  "in_auprc_mean": 0.8896565668012366,
+  "in_auprc_std": 0.005819365929428268,
+  "cross_auprc_mean": 0.41725178886131653,
+  "cross_auprc_std": 0.07133074811663531,
+  "in_tpr_at_fpr_1pct_mean": 0.6185962843710792,
+  "in_tpr_at_fpr_1pct_std": 0.03276232025069574,
+  "cross_tpr_at_fpr_1pct_mean": 0.0010867577792027525,
+  "cross_tpr_at_fpr_1pct_std": 0.0008355384299939158,
+  "cross_unique_attack_f1_mean": 0.09253493598316713,
+  "cross_unique_attack_f1_std": 0.11449841726804308,
+  "cross_unique_auroc_mean": 0.49520852923592074,
+  "cross_unique_auroc_std": 0.1356900141741032,
+  "cross_unique_auprc_mean": 0.3728209274705503,
+  "cross_unique_auprc_std": 0.06096246609998724,
+  "in_precision_mean": 0.8670248461697186,
+  "in_precision_std": 0.024995429680926703,
+  "in_recall_mean": 0.7737064078726589,
+  "in_recall_std": 0.032060089586396286,
+  "cross_precision_mean": 0.19899632504656592,
+  "cross_precision_std": 0.11568455805605152,
+  "cross_recall_mean": 0.11136691981427259,
+  "cross_recall_std": 0.11058454239726581,
+  "degradation_mean": 0.6808345120304252,
+  "degradation_std": 0.10816688763736171,
+  "per_seed": [
+    {
+      "seed": 2026,
+      "in_attack_f1": 0.8057151167018105,
+      "cross_attack_f1": 0.05727880952262692,
+      "in_auroc": 0.9232514597913888,
+      "cross_auroc": 0.1975164020327287,
+      "cross_auprc": 0.34978896960509004
+    },
+    {
+      "seed": 2027,
+      "in_attack_f1": 0.8264869738089183,
+      "cross_attack_f1": 0.2704070483965422,
+      "in_auroc": 0.9235356844119756,
+      "cross_auroc": 0.3904105076080163,
+      "cross_auprc": 0.41006069074149043
+    },
+    {
+      "seed": 2028,
+      "in_attack_f1": 0.8191168168094455,
+      "cross_attack_f1": 0.08112951330972946,
+      "in_auroc": 0.8834378387978878,
+      "cross_auroc": 0.5362286992378621,
+      "cross_auprc": 0.4919057062373692
+    }
+  ],
+  "timestamp": "2026-05-13T09:45:59Z"
+}

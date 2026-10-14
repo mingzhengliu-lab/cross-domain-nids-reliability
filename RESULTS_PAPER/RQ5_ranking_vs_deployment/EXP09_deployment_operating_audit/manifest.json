@@ -1,0 +1,17 @@
+{
+  "protocol": "nfv2_target_label_budget_confirmation_v1",
+  "v5_input": "/root/rivermind-data/paper/results/revision_fewshot_v5_aggregate/runs.csv",
+  "v5_sha256": "422bf345ad10fc97efb9fc399e112429422a907101c5a0923ad2846b1c717c3c",
+  "low_root": "/root/rivermind-fs/nfv2_target_label_budget_confirmation_v1",
+  "n_coordinate_rows": 732,
+  "n_summary_rows": 52,
+  "n_paired_rows": 360,
+  "outputs": [
+    "budget_gates.json",
+    "coordinate_rows.csv",
+    "manifest.json",
+    "paired_deltas.csv",
+    "summary.md",
+    "summary_rows.csv"
+  ]
+}

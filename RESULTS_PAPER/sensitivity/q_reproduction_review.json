@@ -1,0 +1,181 @@
+{
+  "scope": "One target and source seed; not a full nine-seed reproduction.",
+  "artifact_role": "New rerun outputs, separate from historical frozen outputs.",
+  "operation": "compare_existing_rerun",
+  "target": "unsw",
+  "seed": 2026,
+  "source_rows_per_domain": 25000,
+  "environment": {
+    "python": "3.10.8",
+    "numpy": "1.26.0",
+    "scikit_learn": "1.7.2"
+  },
+  "comparisons": {
+    "qtransport": {
+      "arms": 8,
+      "metric_values_compared": 48,
+      "compared_metrics": [
+        "row_auroc",
+        "group_auroc",
+        "row_auprc",
+        "group_auprc",
+        "row_tpr_at_fpr1",
+        "group_tpr_at_fpr1"
+      ],
+      "group_auroc_by_arm": {
+        "source_erm": {
+          "historical": 0.5055599335973077,
+          "rerun": 0.5048762642084909,
+          "difference": -0.0006836693888168099
+        },
+        "source_raw39_lr": {
+          "historical": 0.5103396003271984,
+          "rerun": 0.5104339957356178,
+          "difference": 9.439540841937877e-05
+        },
+        "q_pooled_inductive": {
+          "historical": 0.5199547195648945,
+          "rerun": 0.5199542791508582,
+          "difference": -4.404140362401776e-07
+        },
+        "q_expert_mean_inductive": {
+          "historical": 0.7862302202716123,
+          "rerun": 0.7862598748167143,
+          "difference": 2.9654545102064667e-05
+        },
+        "q_expert_median_inductive": {
+          "historical": 0.8072959576450884,
+          "rerun": 0.8073154826673589,
+          "difference": 1.952502227042796e-05
+        },
+        "q_pooled_transductive": {
+          "historical": 0.5205099348598279,
+          "rerun": 0.5205061179381811,
+          "difference": -3.816921646748739e-06
+        },
+        "q_expert_mean_transductive": {
+          "historical": 0.7863247624847104,
+          "rerun": 0.7863570595140297,
+          "difference": 3.229702931928369e-05
+        },
+        "q_expert_median_transductive": {
+          "historical": 0.8075296706936168,
+          "rerun": 0.8075506637626744,
+          "difference": 2.0993069057562153e-05
+        }
+      },
+      "max_absolute_error_by_metric": {
+        "row_auroc": 0.00043726044017036725,
+        "group_auroc": 0.0006836693888168099,
+        "row_auprc": 0.0001003008632179947,
+        "group_auprc": 0.00023165235300010023,
+        "row_tpr_at_fpr1": 0.0015873015873015817,
+        "group_tpr_at_fpr1": 0.0
+      },
+      "all_metrics_within_1e_8": false,
+      "source_indices_file_sha256_matches_historical": false,
+      "prediction_file_sha256_matches_historical": false,
+      "historical_prediction_sha256": "cd6cc62af1dec5bcbda1e08f3972aa617621ca7fdca0ccefef47aaee825419b6",
+      "rerun_prediction_sha256": "ffb5600a7654abe9aa8cf7f02518ee85b1763a0a564009f209ab0c1a24e6c856",
+      "historical_array_contents_available": false,
+      "archive_hash_interpretation": "NPZ archive hashes can differ because of ZIP metadata; historical source-index arrays are absent, so historical array equality is unverified.",
+      "source_index_values_match_declared_sampling": {
+        "cic": true,
+        "bot": true,
+        "ton": true
+      }
+    },
+    "matched_control": {
+      "arms": 11,
+      "metric_values_compared": 44,
+      "compared_metrics": [
+        "row_auroc",
+        "group_auroc",
+        "row_auprc",
+        "group_auprc"
+      ],
+      "group_auroc_by_arm": {
+        "native78_pooled": {
+          "historical": 0.5055599335973077,
+          "rerun": 0.5048762642084909,
+          "difference": -0.0006836693888168099
+        },
+        "native39_expert_mean": {
+          "historical": 0.4599618131669704,
+          "rerun": 0.45993979246516176,
+          "difference": -2.20207018086227e-05
+        },
+        "native39_expert_median": {
+          "historical": 0.36979834322111776,
+          "rerun": 0.3698249148679668,
+          "difference": 2.6571646849049557e-05
+        },
+        "native78_expert_mean": {
+          "historical": 0.46609149572240527,
+          "rerun": 0.4661897080524716,
+          "difference": 9.821233006634955e-05
+        },
+        "native78_expert_median": {
+          "historical": 0.37164984382918276,
+          "rerun": 0.37167465381988707,
+          "difference": 2.480999070431089e-05
+        },
+        "native117_expert_mean": {
+          "historical": 0.12573116070238405,
+          "rerun": 0.1257376201082479,
+          "difference": 6.4594058638567375e-06
+        },
+        "native117_expert_median": {
+          "historical": 0.08900151091375343,
+          "rerun": 0.08896392891600013,
+          "difference": -3.758199775329152e-05
+        },
+        "native78_shared_expert_mean": {
+          "historical": 0.6297189629952382,
+          "rerun": 0.6296301461646104,
+          "difference": -8.881683062778034e-05
+        },
+        "native78_shared_expert_median": {
+          "historical": 0.44223837791399945,
+          "rerun": 0.44223999276546544,
+          "difference": 1.61485146599194e-06
+        },
+        "q117_expert_mean": {
+          "historical": 0.7865958373239739,
+          "rerun": 0.7866247578456823,
+          "difference": 2.892052170844206e-05
+        },
+        "q117_expert_median": {
+          "historical": 0.8082119454379858,
+          "rerun": 0.8082272131245731,
+          "difference": 1.5267686587328022e-05
+        }
+      },
+      "max_absolute_error_by_metric": {
+        "row_auroc": 0.00043726044017036725,
+        "group_auroc": 0.0006836693888168099,
+        "row_auprc": 9.657445276357868e-05,
+        "group_auprc": 0.00023165235300010023
+      },
+      "all_metrics_within_1e_8": false,
+      "source_indices_file_sha256_matches_historical": false,
+      "prediction_file_sha256_matches_historical": false,
+      "historical_prediction_sha256": "f05e0250bfc397ed091876c65aa7afe863ea4329d8123db1c92bc1b78290a8e2",
+      "rerun_prediction_sha256": "d67f08a2682ae267abbaa58b5f3643f9b16bfffd1b149d956348bbc8002c9a9d",
+      "historical_array_contents_available": false,
+      "archive_hash_interpretation": "NPZ archive hashes can differ because of ZIP metadata; historical source-index arrays are absent, so historical array equality is unverified.",
+      "source_index_values_match_declared_sampling": {
+        "cic": true,
+        "bot": true,
+        "ton": true
+      }
+    }
+  },
+  "paired_test_indices_identical": true,
+  "paired_test_groups_identical": true,
+  "pooled_baseline_score_max_absolute_difference": 0.0,
+  "processed_DATA_unchanged_during_operation": true,
+  "passed": false,
+  "strict_reproduction_passed": false,
+  "interpretation": "Strict historical reproduction is not established. Preserve the failed 1e-8 criterion; report metric differences separately rather than relaxing the acceptance tolerance after seeing the rerun."
+}

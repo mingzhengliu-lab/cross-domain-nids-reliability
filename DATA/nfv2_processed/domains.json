@@ -1,0 +1,107 @@
+{
+  "domains": {
+    "unsw": {
+      "samples": 500000,
+      "features": 39,
+      "benign": 481105,
+      "attack": 18895,
+      "benign_ratio": 0.96221,
+      "balanced": false,
+      "bot_variant": null,
+      "metadata_files": [
+        "unsw_row_id.npy",
+        "unsw_duplicate_group_id.npy"
+      ]
+    },
+    "cic": {
+      "samples": 500000,
+      "features": 39,
+      "benign": 440804,
+      "attack": 59196,
+      "benign_ratio": 0.881608,
+      "balanced": false,
+      "bot_variant": null,
+      "metadata_files": [
+        "cic_row_id.npy",
+        "cic_duplicate_group_id.npy"
+      ]
+    },
+    "bot": {
+      "samples": 258874,
+      "features": 39,
+      "benign": 129437,
+      "attack": 129437,
+      "benign_ratio": 0.5,
+      "balanced": true,
+      "bot_variant": "balanced",
+      "metadata_files": [
+        "bot_row_id.npy",
+        "bot_duplicate_group_id.npy"
+      ]
+    },
+    "ton": {
+      "samples": 500000,
+      "features": 39,
+      "benign": 137078,
+      "attack": 362922,
+      "benign_ratio": 0.274156,
+      "balanced": false,
+      "bot_variant": null,
+      "metadata_files": [
+        "ton_row_id.npy",
+        "ton_duplicate_group_id.npy"
+      ]
+    }
+  },
+  "n_features": 39,
+  "feature_names": [
+    "CLIENT_TCP_FLAGS",
+    "DNS_QUERY_ID",
+    "DNS_QUERY_TYPE",
+    "DNS_TTL_ANSWER",
+    "DST_TO_SRC_AVG_THROUGHPUT",
+    "DST_TO_SRC_SECOND_BYTES",
+    "DURATION_IN",
+    "DURATION_OUT",
+    "FLOW_DURATION_MILLISECONDS",
+    "FTP_COMMAND_RET_CODE",
+    "ICMP_IPV4_TYPE",
+    "ICMP_TYPE",
+    "IN_BYTES",
+    "IN_PKTS",
+    "L7_PROTO",
+    "LONGEST_FLOW_PKT",
+    "MAX_IP_PKT_LEN",
+    "MAX_TTL",
+    "MIN_IP_PKT_LEN",
+    "MIN_TTL",
+    "NUM_PKTS_1024_TO_1514_BYTES",
+    "NUM_PKTS_128_TO_256_BYTES",
+    "NUM_PKTS_256_TO_512_BYTES",
+    "NUM_PKTS_512_TO_1024_BYTES",
+    "NUM_PKTS_UP_TO_128_BYTES",
+    "OUT_BYTES",
+    "OUT_PKTS",
+    "PROTOCOL",
+    "RETRANSMITTED_IN_BYTES",
+    "RETRANSMITTED_IN_PKTS",
+    "RETRANSMITTED_OUT_BYTES",
+    "RETRANSMITTED_OUT_PKTS",
+    "SERVER_TCP_FLAGS",
+    "SHORTEST_FLOW_PKT",
+    "SRC_TO_DST_AVG_THROUGHPUT",
+    "SRC_TO_DST_SECOND_BYTES",
+    "TCP_FLAGS",
+    "TCP_WIN_MAX_IN",
+    "TCP_WIN_MAX_OUT"
+  ],
+  "preprocessing_notes": {
+    "subsample_size_non_bot": 500000,
+    "bot_variant": "balanced",
+    "bot_strategy": "balanced (benign:attack = 1:1)",
+    "ton_strategy": "original distribution preserved",
+    "random_state": 42,
+    "anomaly_handling": "nan/inf preserved in .npy; each LODO run fits finite quantile caps/imputation on source train only and adds invalid indicators",
+    "standardization": "deferred to training (per-LODO-run scaler fit on source train only)"
+  }
+}

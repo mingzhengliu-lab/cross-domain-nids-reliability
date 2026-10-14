@@ -1,0 +1,38 @@
+{
+  "protocol": "nfv2_s0_s3_v1",
+  "methods": [
+    "erm",
+    "dann",
+    "coral",
+    "groupdro",
+    "irm",
+    "fishr",
+    "boda"
+  ],
+  "targets": [
+    "unsw",
+    "cic",
+    "bot",
+    "ton"
+  ],
+  "support_seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "n_labeled": [
+    20,
+    50,
+    100
+  ],
+  "cache_seed": 2026,
+  "s0": "source-val empirical CDF, equal-weight mean, source AUROC orientation",
+  "s1": "per-score support-label orientation of frozen CDF scores",
+  "s2": "C=.1 LogisticRegression on 7 S1 CDF scores",
+  "s3": "source-train fitted canonical 78D LODO representation",
+  "rows": 240,
+  "code_sha256": "bc921e2a97ef20b61ec6b2217ceb426436a7d536dd2b928e27475fdfc17331a6",
+  "n_semantics": "N total selected duplicate groups; N/2 per class"
+}

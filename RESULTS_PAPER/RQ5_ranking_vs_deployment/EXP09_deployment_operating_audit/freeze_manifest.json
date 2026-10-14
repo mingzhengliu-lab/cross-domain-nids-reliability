@@ -1,0 +1,32 @@
+{
+  "freeze_id": "nfv2_deployment_audit_reference_2026-09-11",
+  "source": "/root/rivermind-fs/nfv2_target_label_budget_confirmation_v1/aggregate",
+  "copied_files": [
+    {
+      "path": "budget_gates.json",
+      "bytes": 19196,
+      "sha256": "a0b9a58d15fdf9bc6056091904cdf858c5647411d62031fdf2b11f53781847f9"
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 547,
+      "sha256": "d604dbeb5f7c1d4e614e89c048a168482539b3ddec5d8dab23e582b3de1b3b7e"
+    },
+    {
+      "path": "paired_deltas.csv",
+      "bytes": 41283,
+      "sha256": "020c5afa946359ac170ebd245af2c0840dc5dceb5809b15a2383dfc7908e1d09"
+    },
+    {
+      "path": "summary.md",
+      "bytes": 8618,
+      "sha256": "ba2add5fe39968632622cab32d14f931405f105d6e4c60b70d70c040ce4085c8"
+    },
+    {
+      "path": "summary_rows.csv",
+      "bytes": 22526,
+      "sha256": "3047ace866845c57cd2cff8442dd8313ca1a75ca3823c7cc0501d4015fd18831"
+    }
+  ],
+  "interpretation": "Source-calibrated threshold transport is separate from S0-S3 ranking staircase; no Full-FT or Target-only budget passes the >=3/4 target gate under the frozen audit."
+}

@@ -1,0 +1,6 @@
+# Observed experiment/audit environment, not a validated fresh-install lockfile.
+# Choose the PyTorch CPU/CUDA build appropriate for the host.
+-r requirements-analysis.txt
+torch==2.1.0
+lightgbm==4.6.0
+threadpoolctl==3.6.0

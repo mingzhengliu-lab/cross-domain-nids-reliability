@@ -1,0 +1,113 @@
+{
+  "method": "coral",
+  "algorithm_metadata": {
+    "display_name": "CORAL",
+    "paper_family": "Deep CORAL",
+    "implementation_variant": "multi-source feature mean/covariance alignment",
+    "fidelity": "benchmark implementation",
+    "claim_scope": "Uses a standard CORAL feature-alignment penalty across source domains.",
+    "method": "coral",
+    "canonical_method": "coral"
+  },
+  "target": "ton",
+  "hp_id": 2,
+  "hparams": {
+    "batch_size": 4096,
+    "hidden": 256,
+    "feat_dim": 64,
+    "lr": 0.001,
+    "weight_decay": 0,
+    "dropout": 0.2,
+    "coral_lambda": 10.0
+  },
+  "selection_metric": "val_auroc_macro",
+  "early_stop_metric": "val_auroc_macro",
+  "search_seeds": [
+    42,
+    123
+  ],
+  "n_search_seeds_success": 2,
+  "search_selection_metric_value": 0.9958580392541074,
+  "required_final_artifacts": [
+    "checkpoint.pt",
+    "target_scores.npy",
+    "target_labels.npy",
+    "target_unique_weights.npy",
+    "source_scores.npy",
+    "source_labels.npy",
+    "source_X_sample.npy",
+    "target_logits.npy",
+    "target_scores_calibrated.npy",
+    "source_val_logits.npy",
+    "source_val_scores.npy",
+    "source_val_scores_calibrated.npy",
+    "source_val_labels.npy",
+    "source_val_unique_weights.npy",
+    "calibration.json"
+  ],
+  "n_seeds": 3,
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "in_attack_f1_mean": 0.8946059764969659,
+  "in_attack_f1_std": 0.06697713704888432,
+  "cross_attack_f1_mean": 0.43331774807119877,
+  "cross_attack_f1_std": 0.03328349439489628,
+  "in_auroc_mean": 0.9904132622309577,
+  "in_auroc_std": 0.0016290381341681744,
+  "cross_auroc_mean": 0.6531346825150249,
+  "cross_auroc_std": 0.013837766796389405,
+  "in_auprc_mean": 0.9791291006772865,
+  "in_auprc_std": 0.002564901675504622,
+  "cross_auprc_mean": 0.8100959549257887,
+  "cross_auprc_std": 0.0008926935604322139,
+  "in_tpr_at_fpr_1pct_mean": 0.9594937522084095,
+  "in_tpr_at_fpr_1pct_std": 0.0006559563732826645,
+  "cross_tpr_at_fpr_1pct_mean": 0.01581815501685336,
+  "cross_tpr_at_fpr_1pct_std": 0.008790429341446209,
+  "cross_unique_attack_f1_mean": 0.33535783662475543,
+  "cross_unique_attack_f1_std": 0.022042403478926925,
+  "cross_unique_auroc_mean": 0.5671879034197793,
+  "cross_unique_auroc_std": 0.014621193312613006,
+  "cross_unique_auprc_mean": 0.8083923023395317,
+  "cross_unique_auprc_std": 0.005464468850402791,
+  "in_precision_mean": 0.8429953563999226,
+  "in_precision_std": 0.12244658511878277,
+  "in_recall_mean": 0.9598631589091259,
+  "in_recall_std": 4.818348270213546e-05,
+  "cross_precision_mean": 0.7872237764849093,
+  "cross_precision_std": 0.07398378551024475,
+  "cross_recall_mean": 0.30171496905671186,
+  "cross_recall_std": 0.040085991548922575,
+  "degradation_mean": 0.46128822842576717,
+  "degradation_std": 0.05335527458693777,
+  "per_seed": [
+    {
+      "seed": 2026,
+      "in_attack_f1": 0.8558111562171102,
+      "cross_attack_f1": 0.3952524025655778,
+      "in_auroc": 0.9914606908024337,
+      "cross_auroc": 0.6675375128395146,
+      "cross_auprc": 0.8111073015944046
+    },
+    {
+      "seed": 2027,
+      "in_attack_f1": 0.8560623965965493,
+      "cross_attack_f1": 0.4477609652148584,
+      "in_auroc": 0.9885364273728701,
+      "cross_auroc": 0.6399413854368685,
+      "cross_auprc": 0.8097628655703049
+    },
+    {
+      "seed": 2028,
+      "in_attack_f1": 0.9719443766772383,
+      "cross_attack_f1": 0.4569398764331602,
+      "in_auroc": 0.9912426685175695,
+      "cross_auroc": 0.6519251492686917,
+      "cross_auprc": 0.8094176976126566
+    }
+  ],
+  "timestamp": "2026-05-13T09:45:42Z"
+}

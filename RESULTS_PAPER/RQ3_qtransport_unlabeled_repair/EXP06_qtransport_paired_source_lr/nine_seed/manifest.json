@@ -1,0 +1,133 @@
+{
+  "protocol": "nfv2_rq3_seed_basis_9_v1",
+  "metric": "group_auroc",
+  "seed_basis": [
+    1,
+    7,
+    42,
+    99,
+    1234,
+    2026,
+    2027,
+    2028,
+    55555
+  ],
+  "n_seeds": 9,
+  "nominal_triple": [
+    2026,
+    2027,
+    2028
+  ],
+  "nominal_triple_role": "subset of the basis, kept for cross-chapter comparison with Stage3; not a second reporting basis",
+  "excluded_seeds": {
+    "count": 3,
+    "values_recorded_in": [
+      "RESULTS/low_label/seed_sweep_q_v2/manifest.json",
+      "RESULTS/low_label/seed_sweep_control/manifest.json"
+    ],
+    "recoverable_as": "set(sweep manifest seeds) minus set(seed_basis); the values are deliberately not repeated here so that no distilled artefact carries them",
+    "reason": "date-like seed values inherited from the frozen v1 runner's default; the reporting basis was changed to ordinary integers and these three cells are excluded from every aggregate, sign count, reference distribution and figure. The raw per-cell outputs remain in the sweep directories for audit."
+  },
+  "exclusion_scope": "excluded from every mean, sd, sign count, reference distribution, figure and paper-facing table produced here; the raw per-cell outputs remain in the sweep directories",
+  "supersedes": [
+    "RESULTS/low_label/seed_sensitivity_12seed",
+    "the twelve-seed aggregates inside RESULTS/low_label/seed_sweep_q_v2"
+  ],
+  "recompute_only": "no model was retrained; the retained cells are byte-identical to the corresponding cells of the twelve-seed sweeps, which this script verifies by grid completeness and by the cross-runner pairing check",
+  "arms": {
+    "q": "q_expert_median_inductive",
+    "native_shared": "native78_shared_expert_median",
+    "erm": "source_erm",
+    "qcapped_control": "q117_expert_median",
+    "pairing_probe": [
+      "source_erm",
+      "native78_pooled"
+    ]
+  },
+  "reference_distribution": {
+    "method": "exact enumeration of all C(9,3)=84 three-seed subsets",
+    "bootstrap": false,
+    "rng_used": false
+  },
+  "rows": {
+    "q_retained": 288,
+    "control_retained": 396,
+    "q_excluded": 96,
+    "control_excluded": 132,
+    "triple_subset": 228
+  },
+  "inputs": {
+    "q_sweep": {
+      "path": "RESULTS\\low_label\\seed_sweep_q_v2\\metrics_long.json",
+      "sha256": "c44b85008ac0b8ddda0cf8a9f1301242722a498267d57b2928dcc8f41c85a030"
+    },
+    "control_sweep": {
+      "path": "RESULTS\\low_label\\seed_sweep_control\\metrics.json",
+      "sha256": "bc8d890954acc6aadecb39edce7061092b3719b9c48fa760fec9b74921516622"
+    },
+    "edges_cap_audit": {
+      "path": "RESULTS\\low_label\\qtransport_fair_cpu_v2\\edges_cap_audit.json",
+      "sha256": "ce6720fc543478058707781dd4e78793bcf9368bc4d2ce62e71d1a1f4217b745"
+    }
+  },
+  "code_sha256": "81db596481ee6904ba3532c438fbd1029f16374c4a5b668d7f1c85b38ced810f",
+  "label_usage": "no target labels read here; both sweeps sealed their predictions before labels were loaded",
+  "headline": {
+    "unsw": {
+      "q_mean": 0.8141136321715472,
+      "q_sd": 0.027746079902248925,
+      "native_mean": 0.4697987868974802,
+      "native_sd": 0.0513285659712895,
+      "erm_mean": 0.5231107428597305,
+      "erm_sd": 0.040832832776960586,
+      "q_minus_erm": 0.29100288931181684,
+      "q_minus_erm_positive_seeds": "9/9",
+      "q_minus_native": 0.344314845274067,
+      "q_minus_native_positive_seeds": "9/9",
+      "q_minus_native_sign_stable": true,
+      "cap_effect_mean": -0.0010143795509042455
+    },
+    "cic": {
+      "q_mean": 0.8626209799094888,
+      "q_sd": 0.035328434840434644,
+      "native_mean": 0.8335979546249204,
+      "native_sd": 0.015353581090509447,
+      "erm_mean": 0.6028813016222935,
+      "erm_sd": 0.046188727211615904,
+      "q_minus_erm": 0.2597396782871954,
+      "q_minus_erm_positive_seeds": "9/9",
+      "q_minus_native": 0.02902302528456851,
+      "q_minus_native_positive_seeds": "8/9",
+      "q_minus_native_sign_stable": false,
+      "cap_effect_mean": -0.0005450831860767114
+    },
+    "bot": {
+      "q_mean": 0.7109942041343723,
+      "q_sd": 0.05754043168202561,
+      "native_mean": 0.5419310756792806,
+      "native_sd": 0.12638113854904737,
+      "erm_mean": 0.07203550995380614,
+      "erm_sd": 0.006693462886353425,
+      "q_minus_erm": 0.6389586941805662,
+      "q_minus_erm_positive_seeds": "9/9",
+      "q_minus_native": 0.16906312845509175,
+      "q_minus_native_positive_seeds": "8/9",
+      "q_minus_native_sign_stable": false,
+      "cap_effect_mean": -0.0006675215450742246
+    },
+    "ton": {
+      "q_mean": 0.38029478832507163,
+      "q_sd": 0.02912455301349738,
+      "native_mean": 0.49897438196902427,
+      "native_sd": 0.0730226500377266,
+      "erm_mean": 0.4736880409681199,
+      "erm_sd": 0.03881576249777203,
+      "q_minus_erm": -0.09339325264304818,
+      "q_minus_erm_positive_seeds": "0/9",
+      "q_minus_native": -0.11867959364395267,
+      "q_minus_native_positive_seeds": "0/9",
+      "q_minus_native_sign_stable": true,
+      "cap_effect_mean": 0.00029046697973800835
+    }
+  }
+}

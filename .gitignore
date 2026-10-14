@@ -1,0 +1,37 @@
+# Traffic arrays and newly generated outputs
+DATA/*
+!DATA/nfv2_processed/
+DATA/nfv2_processed/*
+!DATA/nfv2_processed/domains.json
+!DATA/nfv2_processed/feature_names.txt
+!DATA/nfv2_processed/raw_data_manifest.json
+!DATA/nfv2_processed/*_row_id.npy
+!DATA/nfv2_processed/*_duplicate_group_id.npy
+!DATA/nfv2_processed/splits/
+RESULTS/
+
+# Environments, credentials, checkpoints, and editor caches
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.env.*
+*.pem
+*.key
+*.pt
+*.pth
+Thumbs.db
+~$*
+
+# LaTeX build products; the reviewed PDF is intentionally included
+paper/build/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.xdv

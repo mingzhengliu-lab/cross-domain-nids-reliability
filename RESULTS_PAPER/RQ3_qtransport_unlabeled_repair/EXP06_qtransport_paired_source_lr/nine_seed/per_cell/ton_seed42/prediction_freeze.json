@@ -1,0 +1,66 @@
+{
+  "target": "ton",
+  "source_seed": 42,
+  "runner_version": "v2_exact_quantiles",
+  "target_labels_loaded": false,
+  "prediction_sha256": "08c085a0edd5fa872d6a3df2478db12d933e5d4e47027411a94eac8e9e265f11",
+  "dependencies_start": {
+    "CODE\\experiment_low_label\\run_qtransport_fair_cpu_v2.py": "0ce3980004485306dde389488843287b812f39a681c07e1ece47491f3b28963e",
+    "CODE\\common\\nidsbed\\datasets.py": "cf1592948f92ffd7a6d0276e85700316940d6dfa5a371dddeaec86a26d1a008a",
+    "frozen_v1_lineage": "6b51ff9ab82c457400e10f0939b1ddaaa321e8dd6f850b31e68fb9f44b4ae4b7"
+  },
+  "fit_audit": {
+    "source_erm": {
+      "n_iter": 15,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "source_raw39_lr": {
+      "n_iter": 12,
+      "convergence_warning": false,
+      "feature_count": 39
+    },
+    "q_pooled_inductive": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_unsw": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_cic": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_inductive_bot": {
+      "n_iter": 9,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_pooled_transductive": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_unsw": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_cic": {
+      "n_iter": 10,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "q_expert_transductive_bot": {
+      "n_iter": 9,
+      "convergence_warning": false,
+      "feature_count": 117
+    }
+  },
+  "quantile_policy": "exact_full_sample_no_cap_no_rng",
+  "source_indices_sha256": "e6d2960a5446043681ad94add2f6706a523d998f0d056c71c8940718468a9ec8"
+}

@@ -1,0 +1,31 @@
+{
+  "external_data_used": false,
+  "n_coordinates": 24,
+  "n_target_audits": 4,
+  "outputs": {
+    "coordinate_rows": {
+      "path": "/root/rivermind-data/paper/results/nfv2_conditional_label_shift_audit_v1/aggregate/coordinate_rows.csv",
+      "rows": 24,
+      "sha256": "0a0aef93c79359cddfcb47e51dfc01b2753e8ce82b9171fc36fae852e32be3f6"
+    },
+    "summary_md": {
+      "path": "/root/rivermind-data/paper/results/nfv2_conditional_label_shift_audit_v1/aggregate/summary.md",
+      "sha256": "7ca53c2b51b598ae75fe88e4f050b54aa6eb1e42e8411c50f17998a7d8f47356"
+    },
+    "summary_rows": {
+      "path": "/root/rivermind-data/paper/results/nfv2_conditional_label_shift_audit_v1/aggregate/summary_rows.csv",
+      "rows": 8,
+      "sha256": "26a46fef9b14a34856925bce017d0877c6c8612c74b74ccf4423d00d4cfe8eea"
+    },
+    "target_audit_rows": {
+      "path": "/root/rivermind-data/paper/results/nfv2_conditional_label_shift_audit_v1/aggregate/target_audit_rows.csv",
+      "rows": 4,
+      "sha256": "4bb401049b04be89a63dd352907a84d76e327b80d6d48fca9f2b4550f75c51f2"
+    }
+  },
+  "protocol": "nfv2_conditional_label_shift_audit_v1",
+  "schema_version": 1,
+  "status": "ok",
+  "target_labels_read_posthoc": true,
+  "target_labels_used_for_training_or_selection": false
+}

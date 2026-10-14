@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite the accompanying manuscript when using this code or its results."
+type: software
+title: "Reliability of Cross-Domain Network Intrusion Detection"
+authors:
+  - family-names: Liu
+    given-names: MingZheng
+  - family-names: Fu
+    given-names: Yiyang
+  - family-names: Kumari
+    given-names: Saru
+  - family-names: Chen
+    given-names: Chien-Ming
+repository-code: "https://github.com/mingzhengliu-lab/cross-domain-nids-reliability"
+url: "https://github.com/mingzhengliu-lab/cross-domain-nids-reliability"
+license: MIT

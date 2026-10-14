@@ -1,0 +1,28 @@
+{
+  "hp_id": 1,
+  "hparams": {
+    "batch_size": 4096,
+    "hidden": 256,
+    "feat_dim": 64,
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "dropout": 0.4,
+    "boda_lambda": 0.1,
+    "boda_ema_momentum": 0.99,
+    "boda_warmup_iters": 500,
+    "boda_min_samples": 8
+  },
+  "selection_metric": "val_auroc_macro",
+  "early_stop_metric": "val_auroc_macro",
+  "selection_metric_value": 0.9948307334444733,
+  "search_seeds": [
+    42,
+    123
+  ],
+  "n_search_seeds_success": 2,
+  "val_attack_f1_macro": 0.964090614895222,
+  "val_auroc_macro": 0.9948307334444733,
+  "val_auprc_macro": 0.9771849601192308,
+  "val_tpr_at_fpr_1pct_macro": 0.9825673866078688,
+  "in_attack_f1_search": 0.9718615857798856
+}

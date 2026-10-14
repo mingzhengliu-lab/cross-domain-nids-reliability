@@ -1,0 +1,95 @@
+{
+  "derivation": "row-level vs exact-duplicate-group-level column pairs of the frozen Stage3 matrix; NOT a separate training run",
+  "source_file": "RESULTS\\stage3_lodo\\aggregate\\Table_3_raw.csv",
+  "source_sha256": "eef145aeb50aab2c6592de5fb8e9d7a7457d61dbf416d449d3dacc5b3dd491ff",
+  "column_pairs": {
+    "auroc": [
+      "cross_auroc_mean",
+      "cross_unique_auroc_mean"
+    ],
+    "auprc": [
+      "cross_auprc_mean",
+      "cross_unique_auprc_mean"
+    ],
+    "attack_f1": [
+      "cross_f1_mean",
+      "cross_unique_attack_f1_mean"
+    ]
+  },
+  "n_cells": 28,
+  "auroc_delta_group_minus_row": {
+    "mean": 0.04975427519632306,
+    "median": 0.052264303229305024,
+    "sd": 0.0676108095465448,
+    "min": -0.10851734945429148,
+    "max": 0.14792722604185177,
+    "n_positive": 22,
+    "n_negative": 6
+  },
+  "n_cells_where_grouping_flips_side_of_chance": 2,
+  "cells_where_grouping_flips_side_of_chance": [
+    {
+      "method": "coral",
+      "target": "cic",
+      "row": 0.37394004364756794,
+      "group": 0.5121527768500939
+    },
+    {
+      "method": "dann",
+      "target": "ton",
+      "row": 0.4689978218672231,
+      "group": 0.5352746361970042
+    }
+  ],
+  "test_split_group_structure": {
+    "unsw": {
+      "n_rows_test": 50001,
+      "n_groups_test": 7008,
+      "compression_ratio_rows_per_group": 7.134845890410959,
+      "n_mixed_label_groups": 0,
+      "mixed_group_fraction": 0.0,
+      "attack_rate_rows": 0.0377992440151197,
+      "attack_rate_groups": 0.1663812785388128,
+      "split_seed": 2026,
+      "split_policy": "duplicate_aware_exact_feature_group_v4",
+      "split_algo_version": "hybrid_duplicate_group_assignment_v2"
+    },
+    "cic": {
+      "n_rows_test": 50001,
+      "n_groups_test": 32551,
+      "compression_ratio_rows_per_group": 1.5360818408036618,
+      "n_mixed_label_groups": 0,
+      "mixed_group_fraction": 0.0,
+      "attack_rate_rows": 0.11839763204735905,
+      "attack_rate_groups": 0.08534300021504716,
+      "split_seed": 2026,
+      "split_policy": "duplicate_aware_exact_feature_group_v4",
+      "split_algo_version": "hybrid_duplicate_group_assignment_v2"
+    },
+    "bot": {
+      "n_rows_test": 25888,
+      "n_groups_test": 3467,
+      "compression_ratio_rows_per_group": 7.466974329391404,
+      "n_mixed_label_groups": 0,
+      "mixed_group_fraction": 0.0,
+      "attack_rate_rows": 0.5,
+      "attack_rate_groups": 0.39746178252091147,
+      "split_seed": 2026,
+      "split_policy": "duplicate_aware_exact_feature_group_v4",
+      "split_algo_version": "hybrid_duplicate_group_assignment_v2"
+    },
+    "ton": {
+      "n_rows_test": 49321,
+      "n_groups_test": 16842,
+      "compression_ratio_rows_per_group": 2.9284526778292364,
+      "n_mixed_label_groups": 0,
+      "mixed_group_fraction": 0.0,
+      "attack_rate_rows": 0.7358326068003488,
+      "attack_rate_groups": 0.7960456002850018,
+      "split_seed": 2026,
+      "split_policy": "duplicate_aware_exact_feature_group_v4",
+      "split_algo_version": "hybrid_duplicate_group_assignment_v2"
+    }
+  },
+  "interpretation": "Group aggregation is not a cosmetic re-weighting: it moves AUROC by a material margin and in some cells changes which side of chance a method lands on. Any cross-domain claim stated at row level must be restated at group level before it is used as deployment evidence."
+}

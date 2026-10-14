@@ -1,0 +1,112 @@
+{
+  "method": "erm",
+  "algorithm_metadata": {
+    "display_name": "ERM-cw",
+    "paper_family": "Empirical Risk Minimization baseline",
+    "implementation_variant": "class/domain-weighted ERM baseline",
+    "fidelity": "project baseline",
+    "claim_scope": "Uses per-domain class-weighted cross entropy averaged across source domains. It is a controlled NIDS baseline, not unweighted ERM.",
+    "method": "erm",
+    "canonical_method": "erm"
+  },
+  "target": "ton",
+  "hp_id": 0,
+  "hparams": {
+    "batch_size": 4096,
+    "hidden": 256,
+    "feat_dim": 64,
+    "lr": 0.0003,
+    "weight_decay": 0,
+    "dropout": 0.2
+  },
+  "selection_metric": "val_auroc_macro",
+  "early_stop_metric": "val_auroc_macro",
+  "search_seeds": [
+    42,
+    123
+  ],
+  "n_search_seeds_success": 2,
+  "search_selection_metric_value": 0.9958185477817098,
+  "required_final_artifacts": [
+    "checkpoint.pt",
+    "target_scores.npy",
+    "target_labels.npy",
+    "target_unique_weights.npy",
+    "source_scores.npy",
+    "source_labels.npy",
+    "source_X_sample.npy",
+    "target_logits.npy",
+    "target_scores_calibrated.npy",
+    "source_val_logits.npy",
+    "source_val_scores.npy",
+    "source_val_scores_calibrated.npy",
+    "source_val_labels.npy",
+    "source_val_unique_weights.npy",
+    "calibration.json"
+  ],
+  "n_seeds": 3,
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "in_attack_f1_mean": 0.856111487335446,
+  "in_attack_f1_std": 0.00023947157600001117,
+  "cross_attack_f1_mean": 0.38469615287567765,
+  "cross_attack_f1_std": 0.011801255112274237,
+  "in_auroc_mean": 0.9886101029225148,
+  "in_auroc_std": 0.002767095743498029,
+  "cross_auroc_mean": 0.5833820602542671,
+  "cross_auroc_std": 0.0400386646002183,
+  "in_auprc_mean": 0.9769344594059303,
+  "in_auprc_std": 0.003968380144889213,
+  "cross_auprc_mean": 0.7883630784525023,
+  "cross_auprc_std": 0.011042506893341797,
+  "in_tpr_at_fpr_1pct_mean": 0.9562012142237641,
+  "in_tpr_at_fpr_1pct_std": 0.003093889902029262,
+  "cross_tpr_at_fpr_1pct_mean": 0.05139763732519201,
+  "cross_tpr_at_fpr_1pct_std": 0.04262347522462418,
+  "cross_unique_attack_f1_mean": 0.3215762677161678,
+  "cross_unique_attack_f1_std": 0.009140995587851468,
+  "cross_unique_auroc_mean": 0.567000690920243,
+  "cross_unique_auroc_std": 0.013808331161244547,
+  "cross_unique_auprc_mean": 0.8009255685535887,
+  "cross_unique_auprc_std": 0.004964891403881494,
+  "in_precision_mean": 0.7726010382085873,
+  "in_precision_std": 0.00036445879936398664,
+  "in_recall_mean": 0.9598631589091259,
+  "in_recall_std": 4.818348270213546e-05,
+  "cross_precision_mean": 0.7789617257385498,
+  "cross_precision_std": 0.0789493723486436,
+  "cross_recall_mean": 0.2557813157280811,
+  "cross_recall_std": 0.0032302635619892344,
+  "degradation_mean": 0.47141533445976824,
+  "degradation_std": 0.012022313428968694,
+  "per_seed": [
+    {
+      "seed": 2026,
+      "in_attack_f1": 0.8562341513731895,
+      "cross_attack_f1": 0.374385063069405,
+      "in_auroc": 0.9917251062339102,
+      "cross_auroc": 0.6291288982707266,
+      "cross_auprc": 0.7862196717553666
+    },
+    {
+      "seed": 2027,
+      "in_attack_f1": 0.8562647754137116,
+      "cross_attack_f1": 0.3821360842270468,
+      "in_auroc": 0.9864366591987768,
+      "cross_auroc": 0.5547194468642052,
+      "cross_auprc": 0.7785494102278301
+    },
+    {
+      "seed": 2028,
+      "in_attack_f1": 0.8558355352194368,
+      "cross_attack_f1": 0.3975673113305812,
+      "in_auroc": 0.9876685433348575,
+      "cross_auroc": 0.5662978356278696,
+      "cross_auprc": 0.8003201533743105
+    }
+  ],
+  "timestamp": "2026-05-13T09:45:00Z"
+}

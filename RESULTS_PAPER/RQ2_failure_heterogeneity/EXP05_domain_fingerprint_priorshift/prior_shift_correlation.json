@@ -1,0 +1,79 @@
+{
+  "population": "All retained target records after sampling and preprocessing; no test-split restriction",
+  "variables": {
+    "x": "Target attack prior minus the equally weighted mean prior of the other three domains",
+    "y": "Three-seed mean target AUROC for each of seven methods in Table_3_raw.csv"
+  },
+  "domain_attack_rates_row_level_full_data": {
+    "unsw": 0.03779,
+    "cic": 0.118392,
+    "bot": 0.5,
+    "ton": 0.725844
+  },
+  "domain_attack_rates_group_level_full_data": {
+    "unsw": 0.165002642441902,
+    "cic": 0.0853809504793559,
+    "bot": 0.39737638748738646,
+    "ton": 0.8109465598109096
+  },
+  "domain_signed_prior_shift_row_coordinate": {
+    "unsw": -0.41028866666666675,
+    "cic": -0.3028193333333334,
+    "bot": 0.20599133333333328,
+    "ton": 0.5071166666666667
+  },
+  "domain_signed_prior_shift_group_coordinate": {
+    "unsw": -0.26623199015064863,
+    "cic": -0.3723942461007101,
+    "bot": 0.04359966990999734,
+    "ton": 0.5950265663413615
+  },
+  "coordinate_sensitivity": {
+    "x_row__y_row": {
+      "cell_r": 0.5434926393859746,
+      "cell_r_squared": 0.295384249066733,
+      "cell_n": 28,
+      "domain_r": 0.6043656475465977,
+      "domain_r_squared": 0.36525783593441835,
+      "domain_n": 4
+    },
+    "x_row__y_group": {
+      "cell_r": 0.415473544752746,
+      "cell_r_squared": 0.17261826638941205,
+      "cell_n": 28,
+      "domain_r": 0.471394095001033,
+      "domain_r_squared": 0.22221239280184293,
+      "domain_n": 4
+    },
+    "x_group__y_row": {
+      "cell_r": 0.683835871514717,
+      "cell_r_squared": 0.46763149917029256,
+      "cell_n": 28,
+      "domain_r": 0.7604277948833053,
+      "domain_r_squared": 0.5782504312310862,
+      "domain_n": 4
+    },
+    "x_group__y_group": {
+      "cell_r": 0.4957514963457802,
+      "cell_r_squared": 0.2457695461290801,
+      "cell_n": 28,
+      "domain_r": 0.5624770359431709,
+      "domain_r_squared": 0.31638041596341515,
+      "domain_n": 4
+    }
+  },
+  "caveats": [
+    "The 28 method-target conditions share only four domain prior values; they are not independent domain samples.",
+    "Correlations and squared correlations are descriptive; they do not establish a causal contribution of prior shift."
+  ],
+  "inputs": [
+    {
+      "path": "RESULTS_PAPER/sensitivity/data_structure.csv",
+      "sha256": "f57922794027c043d8a87d785af6643daae577ffcd594c58a03025a3951d73a1"
+    },
+    {
+      "path": "RESULTS_PAPER/RQ1_source_confidence_transfer/EXP01_stage3_lodo_main_matrix/Table_3_raw.csv",
+      "sha256": "eef145aeb50aab2c6592de5fb8e9d7a7457d61dbf416d449d3dacc5b3dd491ff"
+    }
+  ]
+}

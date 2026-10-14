@@ -1,0 +1,8 @@
+# Frozen records and code manifests are hash-checked: preserve stored bytes.
+* -text
+*.npy binary
+*.npz binary
+*.pdf binary
+*.png binary
+*.jpeg binary
+*.svg -text

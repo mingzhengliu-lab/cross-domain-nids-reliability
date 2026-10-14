@@ -1,0 +1,9 @@
+category,method,n_seeds,n_targets,row_mean_auroc,group_mean_auroc,row_below_0p5,group_below_0p5
+traditional,LogReg,3,4,0.3862,0.3799,2,3
+traditional,HistGradientBoosting,3,4,0.3413,0.5155,4,2
+traditional,ExtraTrees,3,4,0.4397,0.5257,3,2
+traditional,LightGBM,3,4,0.4316,0.5509,2,1
+source_benign_only,Mahalanobis,3,4,0.4307,0.4864,2,2
+source_benign_only,IsolationForest,3,4,0.5889,0.5542,1,2
+source_benign_only,Autoencoder,3,4,0.5195,0.5206,1,2
+source_benign_only,DeepSVDD,3,4,0.6220,0.5733,0,2

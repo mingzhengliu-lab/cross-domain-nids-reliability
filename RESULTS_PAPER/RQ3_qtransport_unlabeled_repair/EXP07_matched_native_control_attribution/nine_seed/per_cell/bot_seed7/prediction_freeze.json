@@ -1,0 +1,93 @@
+{
+  "target": "bot",
+  "source_seed": 7,
+  "target_labels_loaded": false,
+  "prediction_sha256": "c23dad5aafa615d96ffc0c96b8a34c8acbb13ea42101c96dd1627463e26e1633",
+  "dependencies_start": {
+    "explore\\quantile_transport\\audit_20260914\\run_matched_expert_control.py": "9d06fa968019613a8d29423f58b0bd50af22d0587dd699ba13262172b31a4e09",
+    "CODE\\common\\nidsbed\\datasets.py": "cf1592948f92ffd7a6d0276e85700316940d6dfa5a371dddeaec86a26d1a008a"
+  },
+  "fit_audit": {
+    "native78_pooled": {
+      "n_iter": 14,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "native39_unsw": {
+      "n_iter": 12,
+      "convergence_warning": false,
+      "feature_count": 39
+    },
+    "native78_unsw": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "native117_unsw": {
+      "n_iter": 20,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "native78_shared_unsw": {
+      "n_iter": 20,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "q117_unsw": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "native39_cic": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 39
+    },
+    "native78_cic": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "native117_cic": {
+      "n_iter": 14,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "native78_shared_cic": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "q117_cic": {
+      "n_iter": 11,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "native39_ton": {
+      "n_iter": 8,
+      "convergence_warning": false,
+      "feature_count": 39
+    },
+    "native78_ton": {
+      "n_iter": 8,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "native117_ton": {
+      "n_iter": 28,
+      "convergence_warning": false,
+      "feature_count": 117
+    },
+    "native78_shared_ton": {
+      "n_iter": 16,
+      "convergence_warning": false,
+      "feature_count": 78
+    },
+    "q117_ton": {
+      "n_iter": 8,
+      "convergence_warning": false,
+      "feature_count": 117
+    }
+  },
+  "source_indices_sha256": "d3d241fdccec61ec1a7525c95d075a200ee0fd59d8a2a69e0eebb0ff4972e972"
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "Portable paths, manuscript seed defaults, CPU-only data-helper imports and isolated rerun outputs. Numerical experiment functions retained; strict historical reproduction is not certified.",
+  "sources": [
+    {
+      "historical_path": "CODE/experiment_low_label/run_qtransport_fair_cpu_v2.py",
+      "current_path": "CODE/experiment_low_label/run_qtransport_fair_cpu_v2.py",
+      "historical_sha256": "0ce3980004485306dde389488843287b812f39a681c07e1ece47491f3b28963e",
+      "current_sha256": "daef2d4e17bf6c52d511fb1af9bbd0582ad0b27fbe350520d4f2ae71b5abcf67",
+      "unchanged_numerical_functions": [
+        "file_hash",
+        "fit_zi_edges",
+        "fit_zi_edges_legacy_capped",
+        "transform_zi",
+        "fit_lr",
+        "_tpr_at_fpr",
+        "metrics",
+        "run_cell",
+        "edges_audit"
+      ]
+    },
+    {
+      "historical_path": "explore/quantile_transport/audit_20260914/run_matched_expert_control.py",
+      "current_path": "CODE/experiment_low_label/run_matched_expert_control.py",
+      "historical_sha256": "9d06fa968019613a8d29423f58b0bd50af22d0587dd699ba13262172b31a4e09",
+      "current_sha256": "9a4c41502a87b8f058012046d16f33801d70cf67048e2ccedadf5cdf4d755b7e",
+      "unchanged_numerical_functions": [
+        "file_hash",
+        "zi_flags",
+        "fit_zi_edges",
+        "transform_zi",
+        "fit_native",
+        "native_views",
+        "fit_predict",
+        "score_metrics",
+        "run_cell"
+      ]
+    }
+  ],
+  "retired_v1": {
+    "historical_sha256": "6b51ff9ab82c457400e10f0939b1ddaaa321e8dd6f850b31e68fb9f44b4ae4b7",
+    "runtime_dependency": false,
+    "purpose": "Historical lineage only; original hash remains in frozen prediction records."
+  },
+  "verified_on": "2026-10-06"
+}

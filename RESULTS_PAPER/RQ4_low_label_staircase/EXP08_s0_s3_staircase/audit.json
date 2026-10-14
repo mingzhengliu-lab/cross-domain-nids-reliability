@@ -1,0 +1,26 @@
+{
+  "expected_rows": 240,
+  "actual_rows": 240,
+  "complete": true,
+  "target_count": 4,
+  "budget_count": 3,
+  "seed_count": 5,
+  "stage_count": 4,
+  "nan_count": 0,
+  "support_rows_equal_groups": true,
+  "score_flips_range": [
+    0,
+    7
+  ],
+  "row_eval_range": [
+    0.2106712882543773,
+    0.991703612289738
+  ],
+  "group_eval_range": [
+    0.2131571067189477,
+    0.9943600142011396
+  ],
+  "csv_sha256": "49e522606c5fea9af34f1ca6ad3a68c85405ac2ecc4090997e2fe1cc6e9d7002",
+  "code_sha256": "bc921e2a97ef20b61ec6b2217ceb426436a7d536dd2b928e27475fdfc17331a6",
+  "generated_utc": "2026-09-11T05:04:42Z"
+}

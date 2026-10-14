@@ -1,0 +1,135 @@
+{
+  "collected_on": "2026-10-06",
+  "role": "Existing sensitivity coordinates and new deterministic cache/data checks; no replacement of historical experiment results",
+  "artifacts": [
+    {
+      "source": "RESULTS/reruns/submission_checks/data/data_structure.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/data_structure.csv",
+      "sha256": "f57922794027c043d8a87d785af6643daae577ffcd594c58a03025a3951d73a1",
+      "note": "Full retained attack-row and label-consistent exact-group counts added; verified directly from float32 feature bytes and labels on 2026-10-10."
+    },
+    {
+      "source": "RESULTS/reruns/submission_checks/data/exact_overlap.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/exact_overlap.csv",
+      "sha256": "5c4696927de1b4a8d9e4d7f62c0ba2928fe800066c08fb0ed0e7bda6a6ca6f19"
+    },
+    {
+      "source": "RESULTS/reruns/submission_checks/data/overlap_sensitivity.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/overlap_sensitivity.csv",
+      "sha256": "0f06a8627d61dd1803afe6f285c1dcd827065331111fa2a5b8f86f001a928168"
+    },
+    {
+      "source": "RESULTS/reruns/submission_checks/data/rq1_cache_metrics.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/rq1_cache_metrics.csv",
+      "sha256": "d89c6ec9ab95e8ef682c6efb977f2e8f50aec3797cf8a5e4f8492117832067d1"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/sampling_unsw.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/sampling_unsw.csv",
+      "sha256": "e20b839b8da3207c8535f4e6da254471928e7b447fa1cd485e38f1b77ab9fe7d"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/calibration_unsw.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/calibration_unsw.csv",
+      "sha256": "b19a05e033078fc513c8e7e5f0e85fcd149f48000774d43e1d3f319f6f3b6ae7"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/manifest_unsw_all.json",
+      "distributed": "RESULTS_PAPER/sensitivity/manifest_unsw_all.json",
+      "sha256": "f63cb8d97aea286f28d07603bf7c9c95c08d796abf26216b28b380c2ea771af5"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/sampling_cic.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/sampling_cic.csv",
+      "sha256": "b8ff92c3387fab31e96c1ae55e9e039e0c50a067ade5fccadb3f72a9b6d2d476"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/calibration_cic.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/calibration_cic.csv",
+      "sha256": "440b40b8acd8eba99975712faee106f24c50bfe3667db2e9a4457221d51aab99"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/manifest_cic_all.json",
+      "distributed": "RESULTS_PAPER/sensitivity/manifest_cic_all.json",
+      "sha256": "47eb258bcf7e21780b0c6f6f9a116398ae305b4c9af0dd1a7aa5abc11e006e6b"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/sampling_bot.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/sampling_bot.csv",
+      "sha256": "93cdba534fbc901b2c61ca5820ae72d4c96fc17197d0b2e4efd7f9cf3ef225c3"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/calibration_bot.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/calibration_bot.csv",
+      "sha256": "93e29802b66f3311d8dcdf8c2d44700d26604fce976c19c2f64c3421d62fa032"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/manifest_bot_all.json",
+      "distributed": "RESULTS_PAPER/sensitivity/manifest_bot_all.json",
+      "sha256": "ad6cc731842c9adc8c812033fef8320ea91adaef4343f27c8370acad73b4492f"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/sampling_ton.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/sampling_ton.csv",
+      "sha256": "4d2379a6bfcccd107406700f9cee4b50a868e28427ec89bf78df983c8a79dfb0"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/calibration_ton.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/calibration_ton.csv",
+      "sha256": "0c54073d4677923afe2a2f0407a14cdbb8ae2506ef24be2c46893a6b37780ee8"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/manifest_ton_all.json",
+      "distributed": "RESULTS_PAPER/sensitivity/manifest_ton_all.json",
+      "sha256": "246478bec4658e72b1243603de18b16870508672e10ffdce1e766d01c0d47237"
+    },
+    {
+      "source": "RESULTS/reruns/passive_neural_rq4/aggregate/paired_rows.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/passive_neural_coordinates.csv",
+      "sha256": "c23c3b7e970883a0270d525f00f606e93c498bc86431364c84289c74eed8ffe3"
+    },
+    {
+      "source": "RESULTS/reruns/passive_neural_rq4/aggregate/summary.json",
+      "distributed": "RESULTS_PAPER/sensitivity/passive_neural_manifest.json",
+      "sha256": "1f5637536318aa45c50f557aaa865043e88f504e60003e2016610bb43020b507"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/q_reproduction_review.json",
+      "distributed": "RESULTS_PAPER/sensitivity/q_reproduction_review.json",
+      "sha256": "30bf8bb4859b4721c92fec696b706fb54524b6f9b9fca29f7b388484fd56760e"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/ton_split_sensitivity.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/ton_split_sensitivity.csv",
+      "sha256": "693523246f55f4b22391b0d96c84293a71d61907d50fb7992780e81bbbc25e9e"
+    },
+    {
+      "source": "RESULTS/reruns/publication_revision/controls/ton_alternative_splits.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/ton_alternative_splits.csv",
+      "sha256": "81f957c26cebc73fef45a9c48314ba55d54591c481df1fcc24191e414e64a217"
+    },
+    {
+      "source": "RESULTS/low_label/target_label_budget_confirmation/aggregate/coordinate_rows.csv",
+      "distributed": "RESULTS_PAPER/RQ5_ranking_vs_deployment/EXP09_deployment_operating_audit/coordinate_rows.csv",
+      "sha256": "fce4f740901ac4a772b8da1234c781588bb8dde63c06b7b0fefe91309677391d"
+    },
+    {
+      "source": "RESULTS/reruns/comprehensive_review/data/source_internal_overlap.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/source_internal_overlap.csv",
+      "sha256": "510d9e1ce66efe26b4cc77fe505f2728ba5b666d5ab5b1a4800940d9d2e53c6f",
+      "collected_on": "2026-10-09",
+      "generator": "CODE/analysis/verify_data.py",
+      "generator_sha256": "94872c1ec855375b2bbcf0fa8c263993115f47a3da49205edea9c9f54d8131a9",
+      "operation": "Recompute pooled-source overlap and AUROC from fixed arrays, splits and archived predictions; no training"
+    },
+    {
+      "source": "RESULTS/reruns/comprehensive_review/data/source_internal_sensitivity.csv",
+      "distributed": "RESULTS_PAPER/sensitivity/source_internal_sensitivity.csv",
+      "sha256": "79c8baaf7d735176a27b357946b3eda9066377721290e3ce03932818e05ac9fc",
+      "collected_on": "2026-10-09",
+      "generator": "CODE/analysis/verify_data.py",
+      "generator_sha256": "94872c1ec855375b2bbcf0fa8c263993115f47a3da49205edea9c9f54d8131a9",
+      "operation": "Recompute pooled-source overlap and AUROC from fixed arrays, splits and archived predictions; no training"
+    }
+  ]
+}

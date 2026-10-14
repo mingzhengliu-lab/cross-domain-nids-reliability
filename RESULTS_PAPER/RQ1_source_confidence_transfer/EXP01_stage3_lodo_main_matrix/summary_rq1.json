@@ -1,0 +1,162 @@
+{
+  "source_file": "RESULTS\\stage3_lodo\\aggregate\\Table_3_raw.csv",
+  "source_sha256": "eef145aeb50aab2c6592de5fb8e9d7a7457d61dbf416d449d3dacc5b3dd491ff",
+  "n_cells": 28,
+  "methods": [
+    "boda",
+    "coral",
+    "dann",
+    "erm",
+    "fishr",
+    "groupdro",
+    "irm"
+  ],
+  "targets": [
+    "bot",
+    "cic",
+    "ton",
+    "unsw"
+  ],
+  "seeds_per_cell": [
+    2026,
+    2027,
+    2028
+  ],
+  "source_internal_auroc": {
+    "mean": 0.9464877505929206,
+    "median": 0.958194870660922,
+    "sd": 0.04000375877032562,
+    "min": 0.8418145798753033,
+    "max": 0.9926354316787865,
+    "n_cells": 28,
+    "n_below_0.5": 0,
+    "frac_below_0.5": 0.0
+  },
+  "target_row_auroc": {
+    "mean": 0.3348897615778338,
+    "median": 0.30543896402246096,
+    "sd": 0.16074589845259324,
+    "min": 0.09458862605043701,
+    "max": 0.6593970522953585,
+    "n_cells": 28,
+    "n_below_0.5": 22,
+    "frac_below_0.5": 0.7857142857142857
+  },
+  "target_group_auroc": {
+    "mean": 0.38464403677415687,
+    "median": 0.3905668646775299,
+    "sd": 0.14093975223462096,
+    "min": 0.15677006170954466,
+    "max": 0.5753421872163574,
+    "n_cells": 28,
+    "n_below_0.5": 20,
+    "frac_below_0.5": 0.7142857142857143
+  },
+  "mean_degradation": 0.6979443369020031,
+  "per_target": {
+    "bot": {
+      "n_methods": 7,
+      "in_auroc_mean": 0.915081675394261,
+      "cross_row_auroc_mean": 0.19666111878950457,
+      "cross_group_auroc_mean": 0.25758158694099065,
+      "n_row_below_0.5": 7,
+      "n_group_below_0.5": 7,
+      "best_method_by_group_auroc": "groupdro",
+      "worst_method_by_group_auroc": "irm"
+    },
+    "cic": {
+      "n_methods": 7,
+      "in_auroc_mean": 0.959949673900805,
+      "cross_row_auroc_mean": 0.31218910264537336,
+      "cross_group_auroc_mean": 0.4412441869788658,
+      "n_row_below_0.5": 7,
+      "n_group_below_0.5": 6,
+      "best_method_by_group_auroc": "coral",
+      "worst_method_by_group_auroc": "dann"
+    },
+    "ton": {
+      "n_methods": 7,
+      "in_auroc_mean": 0.9900779064737087,
+      "cross_row_auroc_mean": 0.5703190570623748,
+      "cross_group_auroc_mean": 0.557147695333714,
+      "n_row_below_0.5": 1,
+      "n_group_below_0.5": 0,
+      "best_method_by_group_auroc": "boda",
+      "worst_method_by_group_auroc": "dann"
+    },
+    "unsw": {
+      "n_methods": 7,
+      "in_auroc_mean": 0.9208417466029074,
+      "cross_row_auroc_mean": 0.26038976781408235,
+      "cross_group_auroc_mean": 0.2826026778430569,
+      "n_row_below_0.5": 7,
+      "n_group_below_0.5": 7,
+      "best_method_by_group_auroc": "groupdro",
+      "worst_method_by_group_auroc": "coral"
+    }
+  },
+  "positive_exceptions_group_auroc_ge_0.5": [
+    {
+      "method": "boda",
+      "target": "ton",
+      "cross_row_auroc": 0.524498498033263,
+      "cross_group_auroc": 0.5753421872163574
+    },
+    {
+      "method": "coral",
+      "target": "ton",
+      "cross_row_auroc": 0.6531346825150249,
+      "cross_group_auroc": 0.5671879034197793
+    },
+    {
+      "method": "erm",
+      "target": "ton",
+      "cross_row_auroc": 0.5833820602542671,
+      "cross_group_auroc": 0.567000690920243
+    },
+    {
+      "method": "fishr",
+      "target": "ton",
+      "cross_row_auroc": 0.5959166550862521,
+      "cross_group_auroc": 0.5551180367092808
+    },
+    {
+      "method": "groupdro",
+      "target": "ton",
+      "cross_row_auroc": 0.6593970522953585,
+      "cross_group_auroc": 0.550879702841067
+    },
+    {
+      "method": "irm",
+      "target": "ton",
+      "cross_row_auroc": 0.5069066293852352,
+      "cross_group_auroc": 0.5492307100322663
+    },
+    {
+      "method": "dann",
+      "target": "ton",
+      "cross_row_auroc": 0.4689978218672231,
+      "cross_group_auroc": 0.5352746361970042
+    },
+    {
+      "method": "coral",
+      "target": "cic",
+      "cross_row_auroc": 0.37394004364756794,
+      "cross_group_auroc": 0.5121527768500939
+    }
+  ],
+  "n_positive_exceptions": 8,
+  "blueprint_crosscheck": {
+    "claimed_in_auroc": 0.9465,
+    "actual_in_auroc": 0.9464877505929206,
+    "claimed_row_auroc": 0.3349,
+    "actual_row_auroc": 0.3348897615778338,
+    "claimed_group_auroc": 0.3846,
+    "actual_group_auroc": 0.38464403677415687,
+    "claimed_n_row_below_0.5": 22,
+    "actual_n_row_below_0.5": 22,
+    "claimed_n_group_below_0.5": 20,
+    "actual_n_group_below_0.5": 20
+  },
+  "estimand_note": "Models are trained by row-level (class/domain-weighted) empirical risk, but the deployment-relevant statistical unit is the exact duplicate group. in_auroc is source-internal; cross_auroc is target ROW-level; cross_unique_auroc is target GROUP-level (one vote per homogeneous exact duplicate group)."
+}

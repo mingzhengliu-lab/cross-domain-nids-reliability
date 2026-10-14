@@ -1,0 +1,21 @@
+{
+  "target": "ton",
+  "source_split_unchanged": true,
+  "split_sha256": "4c3ca169add59cb6071c9d0f9078306d264329bbdc89a27319066aebac6ac7c6",
+  "script_sha256": "00dda0772cd62f139a4f535effc3bf9d92618e3da239c35041f84488bcce6645",
+  "support_seeds": [
+    11,
+    23,
+    37,
+    53,
+    71
+  ],
+  "calibration_sampling": "uniform target-train groups excluding all adaptation support groups",
+  "calibration_label_budgets": [
+    100,
+    500
+  ],
+  "target_test_used_for_selection": false,
+  "gpu_used": false,
+  "scope": "fixed source models; ToN alternatives affect target support/evaluation only"
+}

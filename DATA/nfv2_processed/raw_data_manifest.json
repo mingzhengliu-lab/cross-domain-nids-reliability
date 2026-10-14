@@ -1,0 +1,122 @@
+[
+  {
+    "domain": "unsw",
+    "raw_filename": "NF-UNSW-NB15-V2.parquet",
+    "raw_rows": 1986745,
+    "raw_sha256": "7500a64cc12f25542772d9c43d6438234333c2f8c4b45471425fcde18899e5c4",
+    "row_indices_sha256": "f8026cbe45321acc047160dda0931901a371850618f44692dd4ffdf7c436659e",
+    "feature_dtype": "float32",
+    "feature_count": 39,
+    "sample_rows": 500000,
+    "exact_existing_arrays_verified": true,
+    "array_sha256": {
+      "X": "8474b89fc5d84223419ad8084ca773f27ef35753bfaa9f906a96a5283437d8dc",
+      "y": "220c0e1f19bb3d4e6f4b45da15175da5e52c3c2170da4fc810f73ac4c961f03b",
+      "attack": "3dae6033004fae36ebde50fa725dc19e1ef3f5c87e20284c27ef0e0e536534fb"
+    },
+    "label_dtype": "int64",
+    "public_release": {
+      "publisher": "Laurens D'hooge",
+      "dataset_ref": "dhoogla/nfunswnb15v2",
+      "version": 2,
+      "url": "https://www.kaggle.com/datasets/dhoogla/nfunswnb15v2",
+      "download_url": "https://www.kaggle.com/api/v1/datasets/download/dhoogla/nfunswnb15v2/NF-UNSW-NB15-V2.parquet?datasetVersionNumber=2",
+      "license_as_published": "CC BY-NC-SA 4.0",
+      "parquet_bytes": 57229841,
+      "zip_member_crc32": "09d75767",
+      "zip_member_crc32_matches_local": true,
+      "full_download_sha256_verified": true,
+      "verified_on": "2026-10-06"
+    }
+  },
+  {
+    "domain": "cic",
+    "raw_filename": "NF-CSE-CIC-IDS2018-V2.parquet",
+    "raw_rows": 17129715,
+    "raw_sha256": "f299c8a2cb1223912438aae68f3818f898c97ce1824b2deef618f56f266562cb",
+    "row_indices_sha256": "dd056646169bac24ad0e0f9e0b6d4d3684cef3e915272ff4349d7d83520c04f5",
+    "feature_dtype": "float32",
+    "feature_count": 39,
+    "sample_rows": 500000,
+    "exact_existing_arrays_verified": true,
+    "array_sha256": {
+      "X": "6730467be3909f0ad4757e5558cd84b7419345ce708355a5fba410396b1f34ba",
+      "y": "70de67cba9ae4340ea383c7546720f7c91afb06576327b2a64370ef28ece59b1",
+      "attack": "181f81e53f69e1fbabafec40a5c5d0cd057380dafbc088e1ac9c2290d354a16f"
+    },
+    "label_dtype": "int64",
+    "public_release": {
+      "publisher": "Laurens D'hooge",
+      "dataset_ref": "dhoogla/nfcsecicids2018v2",
+      "version": 2,
+      "url": "https://www.kaggle.com/datasets/dhoogla/nfcsecicids2018v2",
+      "download_url": "https://www.kaggle.com/api/v1/datasets/download/dhoogla/nfcsecicids2018v2/NF-CSE-CIC-IDS2018-V2.parquet?datasetVersionNumber=2",
+      "license_as_published": "CC BY-NC-SA 4.0",
+      "parquet_bytes": 641603980,
+      "zip_member_crc32": "9d520293",
+      "zip_member_crc32_matches_local": true,
+      "full_download_sha256_verified": false,
+      "verified_on": "2026-10-06"
+    }
+  },
+  {
+    "domain": "bot",
+    "raw_filename": "NF-BoT-IoT-V2.parquet",
+    "raw_rows": 30420086,
+    "raw_sha256": "1923dd9d93cad5baf9aafb8fe74a59eded38604b544f3691636870c574bf2cc2",
+    "row_indices_sha256": "edd2cc42ae282414acbfba05d2dedc67ea163241a285d5218dbed52db3c64b76",
+    "feature_dtype": "float32",
+    "feature_count": 39,
+    "sample_rows": 258874,
+    "exact_existing_arrays_verified": true,
+    "array_sha256": {
+      "X": "9b631d8a33fe215e1219edf58daa1af18ff417c46578517a03cc353cbce6c245",
+      "y": "e7c6b72c73e4a1d970e6fee72cace70d9750002d73996c91acf0a45bcc180c36",
+      "attack": "19f680cf614d5dbff7570605954db1e50efa8b7c7f34bfa9718cd647c3c5fb4f"
+    },
+    "label_dtype": "int64",
+    "public_release": {
+      "publisher": "Laurens D'hooge",
+      "dataset_ref": "dhoogla/nfbotiotv2",
+      "version": 2,
+      "url": "https://www.kaggle.com/datasets/dhoogla/nfbotiotv2",
+      "download_url": "https://www.kaggle.com/api/v1/datasets/download/dhoogla/nfbotiotv2/NF-BoT-IoT-V2.parquet?datasetVersionNumber=2",
+      "license_as_published": "CC BY-NC-SA 4.0",
+      "parquet_bytes": 508605414,
+      "zip_member_crc32": "58294c0d",
+      "zip_member_crc32_matches_local": true,
+      "full_download_sha256_verified": false,
+      "verified_on": "2026-10-06"
+    }
+  },
+  {
+    "domain": "ton",
+    "raw_filename": "NF-ToN-IoT-V2.parquet",
+    "raw_rows": 13135881,
+    "raw_sha256": "4e8c9ac5cfda1ba1b3f1dbe450feed0dde48b809425bf65eabcd23086afb6624",
+    "row_indices_sha256": "b5e44650cdd91beb7a618ddccc8dc529983b66b4d36e6dc2ab97eac9caf4546c",
+    "feature_dtype": "float32",
+    "feature_count": 39,
+    "sample_rows": 500000,
+    "exact_existing_arrays_verified": true,
+    "array_sha256": {
+      "X": "e0f92df87def677977614408f8e41503b67ee01e258b0f007144da935e9106d3",
+      "y": "8156f011925b12dab4a56af091f877c2fe4c63aadba725426e32cc29fd24e415",
+      "attack": "bcd57cb2123832b02ecfb2405002273f838d1dddc46098b4ff3b10ce737c14ab"
+    },
+    "label_dtype": "int64",
+    "public_release": {
+      "publisher": "Laurens D'hooge",
+      "dataset_ref": "dhoogla/nftoniotv2",
+      "version": 2,
+      "url": "https://www.kaggle.com/datasets/dhoogla/nftoniotv2",
+      "download_url": "https://www.kaggle.com/api/v1/datasets/download/dhoogla/nftoniotv2/NF-ToN-IoT-V2.parquet?datasetVersionNumber=2",
+      "license_as_published": "CC BY-NC-SA 4.0",
+      "parquet_bytes": 209170339,
+      "zip_member_crc32": "a92e551f",
+      "zip_member_crc32_matches_local": true,
+      "full_download_sha256_verified": false,
+      "verified_on": "2026-10-06"
+    }
+  }
+]
