@@ -18,7 +18,7 @@ ap.add_argument('--output-dir', type=Path, default=OUT)
 args=ap.parse_args()
 OUT=args.output_dir
 OUT.mkdir(parents=True,exist_ok=True)
-tex=(args.project/'main_v1.1.tex').read_text(encoding='utf-8-sig')
+tex=(args.project/'main.tex').read_text(encoding='utf-8-sig')
 checks=[]; comparisons=[]; inputs=set()
 def read(path):
     inputs.add(Path(path)); return pd.read_csv(path)

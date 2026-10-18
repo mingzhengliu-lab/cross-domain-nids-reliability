@@ -132,7 +132,7 @@ def audit_rq2():
           and grid(model,['outer_target','seed'],[DOMAINS,(2026,2027,2028)]))
     source = domain.groupby('outer_target').macro_ovr_auroc.mean()
     target = model.groupby('outer_target')[['row_auroc','group_auroc']].mean()
-    tex = (PAPER/'main_v1.1.tex').read_text(encoding='utf-8')
+    tex = (PAPER/'main.tex').read_text(encoding='utf-8')
     block = tex.split(r'\label{tab:domain_fingerprint}',1)[1].split(r'\end{table}',1)[0]
     errors = []
     for t in DOMAINS:
@@ -187,7 +187,7 @@ def audit_q():
             bad.append(f'{target}/{seed}')
     check('Q: all 36 pairing and prediction-sealing manifests agree',not bad,bad)
     p = q_pairs()
-    tex = (PAPER/'main_v1.1.tex').read_text(encoding='utf-8')
+    tex = (PAPER/'main.tex').read_text(encoding='utf-8')
     block = tex.split(r'\label{tab:matched_experts}',1)[1].split(r'\end{table}',1)[0]
     errors = []
     for target in DOMAINS:
@@ -290,7 +290,7 @@ def audit_files():
     essential = [r for r in freeze['copied_files'] if not r['path'].endswith('.md')]
     check('Deployment: original frozen evidence hashes remain intact',
           all((DEPLOY/r['path']).is_file() and sha(DEPLOY/r['path'])==r['sha256'] for r in essential))
-    tex = (PAPER/'main_v1.1.tex').read_text(encoding='utf-8')
+    tex = (PAPER/'main.tex').read_text(encoding='utf-8')
     tex = re.sub(r'(?<!\\)%[^\n]*', '', tex)
     paths = re.findall(r'\\input\{([^}]+)\}',tex)
     check('Manuscript: every included table exists',all((PAPER/p).is_file() for p in paths))

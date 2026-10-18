@@ -3,7 +3,7 @@
 Research code and archived evidence for **Reliability of Cross-Domain Network
 Intrusion Detection**, by MingZheng Liu, Yiyang Fu, Saru Kumari, and Chien-Ming Chen.
 
-[LaTeX source](paper/main_v1.1.tex) ·
+[LaTeX source](paper/main.tex) ·
 [Repository](https://github.com/mingzhengliu-lab/cross-domain-nids-reliability)
 
 ## What this study evaluates
