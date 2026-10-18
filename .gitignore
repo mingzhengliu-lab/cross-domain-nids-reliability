@@ -12,6 +12,7 @@ RESULTS/
 
 # Environments, credentials, checkpoints, and editor caches
 .venv/
+.venv-*/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
@@ -24,7 +25,7 @@ __pycache__/
 Thumbs.db
 ~$*
 
-# LaTeX build products; the reviewed PDF is intentionally included
+# LaTeX build products
 paper/build/
 *.aux
 *.bbl

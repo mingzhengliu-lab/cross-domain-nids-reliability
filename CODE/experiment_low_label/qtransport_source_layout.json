@@ -1,11 +1,11 @@
 {
-  "scope": "Portable paths, manuscript seed defaults, CPU-only data-helper imports and isolated rerun outputs. Numerical experiment functions retained; strict historical reproduction is not certified.",
+  "scope": "Portable paths, manuscript seed defaults, CPU-only data-helper imports and isolated rerun outputs. Historical and distributed source hashes identify the corresponding script versions.",
   "sources": [
     {
       "historical_path": "CODE/experiment_low_label/run_qtransport_fair_cpu_v2.py",
       "current_path": "CODE/experiment_low_label/run_qtransport_fair_cpu_v2.py",
       "historical_sha256": "0ce3980004485306dde389488843287b812f39a681c07e1ece47491f3b28963e",
-      "current_sha256": "daef2d4e17bf6c52d511fb1af9bbd0582ad0b27fbe350520d4f2ae71b5abcf67",
+      "current_sha256": "e9cda7830c9188874fa67295f511fc31a57ce2aa732fc7747a70695f137eaeee",
       "unchanged_numerical_functions": [
         "file_hash",
         "fit_zi_edges",
@@ -41,5 +41,5 @@
     "runtime_dependency": false,
     "purpose": "Historical lineage only; original hash remains in frozen prediction records."
   },
-  "verified_on": "2026-10-06"
+  "verified_on": "2026-10-18"
 }

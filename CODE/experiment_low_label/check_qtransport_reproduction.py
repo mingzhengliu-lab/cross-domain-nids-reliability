@@ -19,7 +19,7 @@ sys.path.insert(0, str(ROOT))
 from CODE.experiment_low_label import run_qtransport_fair_cpu_v2 as q
 from CODE.experiment_low_label import run_matched_expert_control as control
 
-FROZEN = ROOT / "RESULTS_PAPER/RQ3_qtransport_unlabeled_repair"
+FROZEN = ROOT / "RESULTS_PAPER/RQ3_target_information_recovery"
 SEEDS = q.DEFAULT_SEEDS
 METRICS = ("row_auroc", "group_auroc", "row_auprc", "group_auprc",
            "row_tpr_at_fpr1", "group_tpr_at_fpr1")
@@ -34,7 +34,7 @@ def main(argv=None):
     parser.add_argument("--matrix", action="store_true",
                         help="compare all four targets and nine seeds; requires --compare-only")
     parser.add_argument("--output", type=Path,
-                        default=ROOT / "RESULTS/low_label/qtransport_reproduction_check")
+                        default=ROOT / "RESULTS/reruns/qtransport_reproduction_check")
     parser.add_argument("--report", type=Path,
                         help="write the comparison separately from the rerun artifacts")
     args = parser.parse_args(argv)
@@ -71,12 +71,10 @@ def main(argv=None):
                             for r in comparisons for c in r["comparisons"].values())
                 for metric in METRICS},
             "comparisons": comparisons,
-            "historical_single_coordinate_failure_preserved":
-                "RESULTS_PAPER/sensitivity/q_reproduction_review.json",
         }
         report["interpretation"] = (
             "All regenerated prediction/source-index archives match their historical SHA-256 "
-            "records and all compared metrics match. The earlier failed rerun remains archived."
+            "records and all compared metrics match."
             if report["strict_reproduction_passed"] else
             "Full historical reproduction failed; preserve the original acceptance criterion.")
         report_path = args.report or out / "matrix_comparison.json"

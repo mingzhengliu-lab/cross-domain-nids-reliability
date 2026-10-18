@@ -64,11 +64,11 @@ TARGETS = ["unsw", "cic", "bot", "ton"]
 DEFAULT_NS = [50, 100, 500, 1000]
 DEFAULT_MODES = ["full_ft", "target_only"]
 SUPPORT_POLICIES = ("balanced", "random_group")
-DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "RESULTS" / "low_label" / "revision_fewshot_v5"
+DEFAULT_OUTPUT_ROOT = PROJECT_ROOT / "RESULTS" / "reruns" / "adaptation"
 DEFAULT_CHECKPOINT_TEMPLATE = (
     PROJECT_ROOT
     / "RESULTS"
-    / "stage3_lodo"
+    / "reruns"
     / "stage3"
     / "erm_{target}"
     / "final"

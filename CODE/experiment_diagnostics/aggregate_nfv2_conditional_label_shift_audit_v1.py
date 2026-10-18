@@ -64,9 +64,9 @@ def _write_csv(path: Path, rows: list[dict]) -> dict:
     return {"path": str(path.resolve()), "sha256": _sha256(path), "rows": len(rows)}
 
 
-def _load_domain_fingerprint(root: Path) -> dict[tuple[str, str, str], float]:
+def _load_domain_fingerprint(root: Path, domain_root: Path | None = None) -> dict[tuple[str, str, str], float]:
     """Load the fixed source-domain identity summary for relation reporting only."""
-    path = root.parent / "nfv2_domain_fingerprint_relational_v1" / "aggregate" / "domain_summary.csv"
+    path = (domain_root or root.parent / "domain_fingerprint") / "aggregate" / "domain_summary.csv"
     if not path.is_file():
         raise ValueError(f"required prior domain-fingerprint aggregate is missing: {path}")
     lookup = {}
@@ -125,13 +125,13 @@ def _check_target(d: dict, target):
         raise ValueError(f"{target}: incomplete target coordinates")
 
 
-def aggregate(root: Path) -> dict:
+def aggregate(root: Path, domain_root: Path | None = None) -> dict:
     root = root.resolve()
     manifest = _json(root / "protocol_manifest.json")
     if manifest.get("protocol") != PROTOCOL or manifest.get("external_data_allowed") is not False:
         raise ValueError("protocol manifest is not frozen to four-domain post-hoc audit")
     coords, targets = collect(root)
-    domain_fingerprint = _load_domain_fingerprint(root)
+    domain_fingerprint = _load_domain_fingerprint(root, domain_root)
     expected = {(t, r, s) for t in DOMAINS for r in REPRESENTATIONS for s in SEEDS}
     if set(coords) != expected:
         raise ValueError(json.dumps({"missing": sorted(expected - set(coords)),
@@ -253,8 +253,9 @@ def aggregate(root: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", default=str(DEFAULT_ROOT))
+    parser.add_argument("--domain-root", type=Path, default=PROJECT_ROOT / 'RESULTS/reruns/domain_fingerprint')
     args = parser.parse_args()
-    result = aggregate(Path(args.root))
+    result = aggregate(Path(args.root), args.domain_root)
     print(json.dumps(result, sort_keys=True))
 
 

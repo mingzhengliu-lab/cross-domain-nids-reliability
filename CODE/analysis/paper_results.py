@@ -8,10 +8,10 @@ PAPER = ROOT / "paper"
 FROZEN = ROOT / "RESULTS_PAPER"
 RQ1 = FROZEN / "RQ1_source_confidence_transfer/EXP01_stage3_lodo_main_matrix"
 RQ2 = FROZEN / "RQ2_failure_heterogeneity"
-Q = FROZEN / "RQ3_qtransport_unlabeled_repair/EXP06_qtransport_paired_source_lr/nine_seed"
-CONTROL = FROZEN / "RQ3_qtransport_unlabeled_repair/EXP07_matched_native_control_attribution/nine_seed"
-STAIR = FROZEN / "RQ4_low_label_staircase/EXP08_s0_s3_staircase"
-DEPLOY = FROZEN / "RQ5_ranking_vs_deployment/EXP09_deployment_operating_audit"
+Q = FROZEN / "RQ3_target_information_recovery/EXP06_qtransport_paired_source_lr/nine_seed"
+CONTROL = FROZEN / "RQ3_target_information_recovery/EXP07_matched_native_control_attribution/nine_seed"
+STAIR = FROZEN / "RQ3_target_information_recovery/EXP08_s0_s3_staircase"
+DEPLOY = FROZEN / "RQ4_ranking_vs_deployment/EXP09_deployment_operating_audit"
 SENS = FROZEN / "sensitivity"
 DOMAINS = ("unsw", "cic", "bot", "ton")
 DISPLAY = {"unsw": "UNSW", "cic": "CIC", "bot": "BoT", "ton": "ToN"}
@@ -19,6 +19,24 @@ METHODS = ("erm", "dann", "coral", "groupdro", "irm", "fishr", "boda")
 METHOD_DISPLAY = dict(zip(METHODS, ("ERM-cw", "DANN-source", "CORAL", "GroupDRO", "IRM", "Fishr-lite", "BoDA-style")))
 SEEDS = (1, 7, 42, 99, 1234, 2026, 2027, 2028, 55555)
 SUPPORT_SEEDS = (11, 23, 37, 53, 71)
+
+def configure_results(directory):
+    """Select one complete evidence tree, without falling back to archived data."""
+    global FROZEN, RQ1, RQ2, Q, CONTROL, STAIR, DEPLOY, SENS
+    FROZEN = Path(directory).expanduser().resolve()
+    RQ1 = FROZEN / "RQ1_source_confidence_transfer/EXP01_stage3_lodo_main_matrix"
+    RQ2 = FROZEN / "RQ2_failure_heterogeneity"
+    RQ3 = FROZEN / "RQ3_target_information_recovery"
+    Q = RQ3 / "EXP06_qtransport_paired_source_lr/nine_seed"
+    CONTROL = RQ3 / "EXP07_matched_native_control_attribution/nine_seed"
+    STAIR = RQ3 / "EXP08_s0_s3_staircase"
+    DEPLOY = FROZEN / "RQ4_ranking_vs_deployment/EXP09_deployment_operating_audit"
+    SENS = FROZEN / "sensitivity"
+
+def input_path(path):
+    """Keep in-repository paths portable; allow explicit external input trees."""
+    path = Path(path).resolve()
+    return path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else str(path)
 
 def read_json(path):
     return json.loads(Path(path).read_text(encoding="utf-8"))

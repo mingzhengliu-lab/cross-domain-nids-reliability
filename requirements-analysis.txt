@@ -1,5 +1,4 @@
 # Python 3.10/3.11. Numerical versions recorded with the historical experiments.
-# Compact arithmetic checks also passed on Python 3.13 / NumPy 2.4 / Pandas 3.0.
 numpy==1.26.0
 pandas==2.3.3
 scipy==1.15.3

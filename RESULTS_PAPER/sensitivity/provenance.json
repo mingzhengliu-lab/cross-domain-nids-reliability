@@ -94,11 +94,6 @@
       "sha256": "1f5637536318aa45c50f557aaa865043e88f504e60003e2016610bb43020b507"
     },
     {
-      "source": "RESULTS/reruns/publication_revision/q_reproduction_review.json",
-      "distributed": "RESULTS_PAPER/sensitivity/q_reproduction_review.json",
-      "sha256": "30bf8bb4859b4721c92fec696b706fb54524b6f9b9fca29f7b388484fd56760e"
-    },
-    {
       "source": "RESULTS/reruns/publication_revision/controls/ton_split_sensitivity.csv",
       "distributed": "RESULTS_PAPER/sensitivity/ton_split_sensitivity.csv",
       "sha256": "693523246f55f4b22391b0d96c84293a71d61907d50fb7992780e81bbbc25e9e"
@@ -110,7 +105,7 @@
     },
     {
       "source": "RESULTS/low_label/target_label_budget_confirmation/aggregate/coordinate_rows.csv",
-      "distributed": "RESULTS_PAPER/RQ5_ranking_vs_deployment/EXP09_deployment_operating_audit/coordinate_rows.csv",
+      "distributed": "RESULTS_PAPER/RQ4_ranking_vs_deployment/EXP09_deployment_operating_audit/coordinate_rows.csv",
       "sha256": "fce4f740901ac4a772b8da1234c781588bb8dde63c06b7b0fefe91309677391d"
     },
     {

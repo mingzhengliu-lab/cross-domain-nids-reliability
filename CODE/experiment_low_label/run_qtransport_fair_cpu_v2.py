@@ -3,9 +3,11 @@ from __future__ import annotations
 """Q-TRANSPORT for the manuscript: exact quantiles and nine paired source seeds.
 
 Quantile edges use every valid nonzero fitting observation. Target training
-features fit the inductive transform; labels are opened only for evaluation
-after predictions have been saved. The legacy capped transform is implemented
-locally only for --edges-audit and needs no v1 executable.
+features fit the inductive transform. Domain label files are opened as read-only
+memory maps at cell initialization; target label values are indexed only for
+evaluation after predictions and their freeze record have been saved. The legacy
+capped transform is implemented locally only for --edges-audit and needs no v1
+executable.
 
 Source subsamples, fixed splits, preprocessing, logistic models, aggregation,
 and metric calculations are unchanged from the archived v2 implementation.
@@ -155,13 +157,15 @@ def metrics(y, score, gid) -> dict:
 
 
 def run_cell(target: str, seed: int, max_rows: int, output: Path) -> list[dict]:
-    """One (target, seed) cell. Predictions are persisted BEFORE target labels."""
+    """Persist predictions before indexing target label values for evaluation."""
     started = time.time()
     start_hashes = hashes()
     cell_dir = Path(output) / f"{target}_seed{seed}"
     cell_dir.mkdir(parents=True, exist_ok=True)
 
     arr = {d: np.load(DATA / f"{d}_X.npy", mmap_mode="r") for d in DOMAINS}
+    # Map all label files read-only; target label values are indexed only below
+    # in evaluation, after predictions and their freeze record have been saved.
     ys = {d: np.load(DATA / f"{d}_y.npy", mmap_mode="r") for d in DOMAINS}
     sp = {d: load_domain_split(DATA, d) for d in DOMAINS}
 
@@ -220,11 +224,13 @@ def run_cell(target: str, seed: int, max_rows: int, output: Path) -> list[dict]:
             scores[f"q_expert_mean_{mode}"] = E.mean(axis=0)
             scores[f"q_expert_median_{mode}"] = np.median(E, axis=0)
 
-    # Persist every score BEFORE this target's label array is read.
+    # Persist every score before indexing this target's label values.
     np.savez_compressed(cell_dir / "frozen_predictions.npz", test_idx=te,
                         test_gid=gid, **scores)
     np.savez_compressed(cell_dir / "source_indices.npz", **source_indices)
     freeze_hash = file_hash(cell_dir / "frozen_predictions.npz")
+    # The legacy target_labels_loaded field tracks indexed label-value access,
+    # not whether a read-only file mapping has already been established.
     (cell_dir / "prediction_freeze.json").write_text(json.dumps({
         "target": target, "source_seed": seed, "runner_version": "v2_exact_quantiles",
         "target_labels_loaded": False, "prediction_sha256": freeze_hash,
@@ -233,7 +239,7 @@ def run_cell(target: str, seed: int, max_rows: int, output: Path) -> list[dict]:
         "source_indices_sha256": file_hash(cell_dir / "source_indices.npz"),
     }, indent=2), encoding="utf-8")
 
-    # Evaluation is the first access to this target's labels in this cell.
+    # First indexed access to this target's label values in this cell.
     ty = np.asarray(ys[target][te], dtype=np.int8)
     rows = [{"target": target, "seed": seed, "method": name,
              "target_fit": ("source_only" if name in {"source_erm", "source_raw39_lr"}

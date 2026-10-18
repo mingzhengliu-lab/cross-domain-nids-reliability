@@ -1,8 +1,8 @@
-"""Aggregate the frozen NFv2 target-label budget confirmation study.
+"""Aggregate the complete NFv2 target-label budget experiment grid.
 
-The existing v5 coordinates (N=0, 50, 100, 500, 1000) are read-only inputs.
-This script adds any completed low-budget fixed-schedule coordinates (N=10, 20)
-from the new output root and emits auditable cell summaries and gates.
+The adaptation summary supplies N=0, 50, 100, 500, 1000 coordinates.
+This script combines them with the low-budget fixed-schedule coordinates
+(N=10, 20), checks completeness, and emits cell summaries and gates.
 """
 from __future__ import annotations
 
@@ -11,6 +11,7 @@ import csv
 import hashlib
 import json
 import math
+import itertools
 from pathlib import Path
 from typing import Any
 
@@ -18,8 +19,8 @@ import numpy as np
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-V5_RUNS = PROJECT_ROOT / "RESULTS" / "low_label" / "revision_fewshot_v5_aggregate" / "runs.csv"
-DEFAULT_LOW_ROOT = PROJECT_ROOT / "RESULTS" / "low_label" / "target_label_budget_confirmation"
+V5_RUNS = PROJECT_ROOT / "RESULTS" / "reruns" / "adaptation_summary" / "runs.csv"
+DEFAULT_LOW_ROOT = PROJECT_ROOT / "RESULTS" / "reruns" / "low_budget"
 DEFAULT_OUTPUT = PROJECT_ROOT / "RESULTS/reruns/deployment_summary"
 TARGETS = ("unsw", "cic", "bot", "ton")
 MODES = ("full_ft", "target_only")
@@ -269,6 +270,14 @@ def main() -> None:
     dup = rows.duplicated(duplicate_keys, keep=False)
     if bool(dup.any()):
         raise ValueError(f"duplicate coordinate rows: {rows.loc[dup, duplicate_keys].to_dict('records')[:5]}")
+    expected = {(t, n, m, seed, support) for t, n, m, seed, support in
+                itertools.product(TARGETS, (10, 20, 50, 100, 500, 1000), MODES,
+                                  (2026, 2027, 2028), (11, 23, 37, 53, 71))}
+    expected |= {(t, 0, 'zero_shot', seed, -1) for t, seed in itertools.product(TARGETS, (2026, 2027, 2028))}
+    actual = {(r.target, int(r.n_labeled), r.mode, int(r.checkpoint_seed),
+               -1 if pd.isna(r.support_seed) else int(r.support_seed)) for r in rows.itertuples()}
+    if len(rows) != 732 or actual != expected:
+        raise ValueError(f'Incomplete deployment matrix: missing {len(expected-actual)}, unexpected {len(actual-expected)} coordinates')
     if (pd.to_numeric(rows["support_group_overlap"], errors="coerce").fillna(0) != 0).any():
         raise ValueError("support/evaluation duplicate-group overlap detected")
     low_rows = rows[rows["result_source"] == "target_label_budget_confirmation_v1_low"]

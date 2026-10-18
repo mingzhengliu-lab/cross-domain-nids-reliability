@@ -20,9 +20,9 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 
-Q_SWEEP = ROOT / "RESULTS_PAPER/RQ3_qtransport_unlabeled_repair/EXP06_qtransport_paired_source_lr/nine_seed/metrics_long.json"
-CTL_SWEEP = ROOT / "RESULTS_PAPER/RQ3_qtransport_unlabeled_repair/EXP07_matched_native_control_attribution/nine_seed/metrics.json"
-CAP_AUDIT = ROOT / "RESULTS_PAPER/RQ3_qtransport_unlabeled_repair/EXP06_qtransport_paired_source_lr/quantile_cap_audit/edges_cap_audit.json"
+Q_SWEEP = ROOT / "RESULTS_PAPER/RQ3_target_information_recovery/EXP06_qtransport_paired_source_lr/nine_seed/metrics_long.json"
+CTL_SWEEP = ROOT / "RESULTS_PAPER/RQ3_target_information_recovery/EXP07_matched_native_control_attribution/nine_seed/metrics.json"
+CAP_AUDIT = ROOT / "RESULTS_PAPER/RQ3_target_information_recovery/EXP06_qtransport_paired_source_lr/quantile_cap_audit/edges_cap_audit.json"
 OUT = ROOT / "RESULTS/reruns/q_summary"
 
 TARGETS = ("unsw", "cic", "bot", "ton")
@@ -173,11 +173,15 @@ def check_pairing(table, seeds) -> dict:
 
 
 def main() -> None:
+    global Q_SWEEP, CTL_SWEEP
     ap = argparse.ArgumentParser(description="Re-base RQ3 aggregates on nine seeds")
     ap.add_argument("--output", type=Path, default=OUT)
+    ap.add_argument("--q-input", type=Path, default=Q_SWEEP)
+    ap.add_argument("--control-input", type=Path, default=CTL_SWEEP)
     ap.add_argument("--dry-run", action="store_true",
                     help="compute and print the headline, write nothing")
     args = ap.parse_args()
+    Q_SWEEP, CTL_SWEEP = args.q_input, args.control_input
 
     for p in (Q_SWEEP, CTL_SWEEP):
         if not p.is_file():
@@ -432,8 +436,8 @@ def main() -> None:
         "recompute_only": "Reaggregated retained metrics; no training or historical prediction recovery.",
         "rows": {"q_retained": len(q_rows), "control_retained": len(c_rows),
                  "q_excluded": 0, "control_excluded": 0, "triple_subset": len(triple_rows)},
-        "inputs": {"q": {"path": str(Q_SWEEP.relative_to(ROOT)), "sha256": _sha(Q_SWEEP)},
-                   "control": {"path": str(CTL_SWEEP.relative_to(ROOT)), "sha256": _sha(CTL_SWEEP)}},
+        "inputs": {"q": {"path": str(Q_SWEEP), "sha256": _sha(Q_SWEEP)},
+                   "control": {"path": str(CTL_SWEEP), "sha256": _sha(CTL_SWEEP)}},
         "code_sha256": _sha(Path(__file__).resolve()),
         "reference_distribution": {"method": "exact enumeration", "k": 3, "n_subsets": 84},
         "headline": headline,
@@ -460,7 +464,7 @@ def main() -> None:
     print("\n".join(att_lines[-14:]))
     print()
     print("\n".join(sens_lines[-12:]))
-    print(f"\nwrote 7 JSON files into {out.relative_to(ROOT)}/")
+    print(f"\nwrote 7 JSON files into {out}/")
     print(json.dumps({"q_rows": len(q_rows), "control_rows": len(c_rows),
                       "excluded_q_rows": len(q_rows_all) - len(q_rows),
                       "direction_stable_q_vs_erm": sum(stable_erm.values()),

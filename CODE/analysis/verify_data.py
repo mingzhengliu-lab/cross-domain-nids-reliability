@@ -29,8 +29,9 @@ def member(values, sorted_reference):
     result[valid] = sorted_reference[i[valid]] == values[valid]
     return result
 
-def run(out):
-    data = ROOT / 'DATA/nfv2_processed'
+def run(out, data=None, stage3_root=None):
+    data = Path(data or ROOT / 'DATA/nfv2_processed')
+    stage3_root = Path(stage3_root or ROOT / 'RESULTS/reruns/stage3')
     xs, ys, splits, train_keys = {}, {}, {}, {}
     structures = []
     for domain in DOMAINS:
@@ -105,7 +106,7 @@ def run(out):
             overlapping_groups=int(np.unique(source_gid[source_seen]).size)))
         for method in METHODS:
             for seed in (2026,2027,2028):
-                base = ROOT/f'RESULTS/stage3_lodo/stage3/{method}_{target}/final/seed{seed}_artifacts'
+                base = stage3_root/f'{method}_{target}/final/seed{seed}_artifacts'
                 scores = np.load(base/'target_scores.npy')
                 cached_y = np.load(base/'target_labels.npy')
                 if not np.array_equal(cached_y,y): raise ValueError(f'{base}: cached target order mismatch')
@@ -149,5 +150,7 @@ def run(out):
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,default=ROOT/'RESULTS/reruns/submission_checks/data')
+    p.add_argument('--data-dir',type=Path,default=ROOT/'DATA/nfv2_processed')
+    p.add_argument('--stage3-root',type=Path,default=ROOT/'RESULTS/reruns/stage3')
     args=p.parse_args()
-    run(args.output)
+    run(args.output, args.data_dir, args.stage3_root)
