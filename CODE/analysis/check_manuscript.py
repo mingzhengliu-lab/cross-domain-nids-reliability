@@ -16,6 +16,9 @@ ap.add_argument('--project', type=Path, default=ROOT/'paper')
 ap.add_argument('--tag', default='current')
 ap.add_argument('--output-dir', type=Path, default=OUT)
 args=ap.parse_args()
+if not (args.project/'main.tex').is_file():
+    ap.error('The manuscript is not distributed with this repository. '
+             'Use --project PATH to a local directory containing main.tex.')
 OUT=args.output_dir
 OUT.mkdir(parents=True,exist_ok=True)
 tex=(args.project/'main.tex').read_text(encoding='utf-8-sig')

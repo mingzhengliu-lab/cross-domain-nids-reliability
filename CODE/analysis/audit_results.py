@@ -1,8 +1,8 @@
 """Verify the compact evidence chain without raw data, GPUs or prediction caches.
 
-Checks coordinates, paired controls, summary arithmetic, split audits, generated
-artifact hashes and manuscript references. The verification scope is archived
-evidence and its presentation in the manuscript.
+Checks coordinates, paired controls, summary arithmetic, split audits and
+archived artifact hashes. Add --with-manuscript to also check a local paper/
+directory; the manuscript is not distributed with the code release.
 """
 from __future__ import annotations
 import argparse
@@ -81,7 +81,7 @@ def audit_rq1():
                                         'excluded_source_group_auroc']].mean(),
                     [.9698623543,.9704054667],atol=1e-8))
 
-def audit_rq2():
+def audit_rq2(with_manuscript=False):
     family_root = RQ2/'EXP03_model_family_controls'
     d = pd.read_csv(family_root/'comparison/baseline_results.csv')
     methods = ('logreg','histgb','extratrees','lightgbm',
@@ -130,23 +130,24 @@ def audit_rq2():
     check('RQ2: domain fingerprint and independent ERM use all twelve declared coordinates',
           grid(domain,['outer_target','seed'],[DOMAINS,(2026,2027,2028)])
           and grid(model,['outer_target','seed'],[DOMAINS,(2026,2027,2028)]))
-    source = domain.groupby('outer_target').macro_ovr_auroc.mean()
-    target = model.groupby('outer_target')[['row_auroc','group_auroc']].mean()
-    tex = (PAPER/'main.tex').read_text(encoding='utf-8')
-    block = tex.split(r'\label{tab:domain_fingerprint}',1)[1].split(r'\end{table}',1)[0]
-    errors = []
-    for t in DOMAINS:
-        match = re.search(rf'(?m)^{t}\s*&\s*([\d.]+)\s*&\s*([\d.]+)\s*&\s*([\d.]+)\s*&\s*(\d+)/3',block,re.I)
-        expected = [source.loc[t],target.loc[t,'row_auroc'],target.loc[t,'group_auroc']]
-        inverted = int((model.loc[model.outer_target==t,'group_auroc']<.5).sum())
-        if not match or not close([float(x) for x in match.groups()[:3]],expected,atol=5e-4) or int(match[4])!=inverted:
-            errors.append(t)
-    check('RQ2: manuscript fingerprint table matches independent seed records',not errors,errors)
+    tex = (PAPER/'main.tex').read_text(encoding='utf-8') if with_manuscript else None
+    if with_manuscript:
+        source = domain.groupby('outer_target').macro_ovr_auroc.mean()
+        target = model.groupby('outer_target')[['row_auroc','group_auroc']].mean()
+        block = tex.split(r'\label{tab:domain_fingerprint}',1)[1].split(r'\end{table}',1)[0]
+        errors = []
+        for t in DOMAINS:
+            match = re.search(rf'(?m)^{t}\s*&\s*([\d.]+)\s*&\s*([\d.]+)\s*&\s*([\d.]+)\s*&\s*(\d+)/3',block,re.I)
+            expected = [source.loc[t],target.loc[t,'row_auroc'],target.loc[t,'group_auroc']]
+            inverted = int((model.loc[model.outer_target==t,'group_auroc']<.5).sum())
+            if not match or not close([float(x) for x in match.groups()[:3]],expected,atol=5e-4) or int(match[4])!=inverted:
+                errors.append(t)
+        check('RQ2: manuscript fingerprint table matches independent seed records',not errors,errors)
     structure = pd.read_csv(SENS/'data_structure.csv').set_index('target')
     prior = read_json(root/'prior_shift_correlation.json')
     results = rq1()
     errors = []
-    block = tex.split(r'\label{tab:prior_correlation}',1)[1].split(r'\end{table}',1)[0]
+    block = tex.split(r'\label{tab:prior_correlation}',1)[1].split(r'\end{table}',1)[0] if with_manuscript else None
     for coordinate, numerator, denominator, label in (
             ('row','n_attack_rows','n_rows','Row prior / row AUROC'),
             ('group','n_attack_groups','n_groups','Group prior / group AUROC')):
@@ -160,16 +161,19 @@ def audit_rq2():
             saved = prior['coordinate_sensitivity'][f'x_{coordinate}__y_{ycoordinate}']
             if not close([r,r*r],[saved['cell_r'],saved['cell_r_squared']]):
                 errors.append(f'{coordinate}/{ycoordinate}: correlation mismatch')
-            if coordinate==ycoordinate:
+            if with_manuscript and coordinate==ycoordinate:
                 expected = f'{label} & {r:.3f} & {r*r:.3f} & 28 & 4'
                 if expected not in block:
                     errors.append(f'{coordinate}: manuscript rounded values mismatch')
     if any(not (ROOT/p['path']).is_file() or sha(ROOT/p['path'])!=p['sha256'] for p in prior['inputs']):
         errors.append('prior input hash mismatch')
-    check('RQ2: priors and AUROCs share the retained population; manuscript correlations agree',not errors,errors)
+    name = 'RQ2: priors and AUROCs share the retained population; archived correlations agree'
+    if with_manuscript:
+        name += '; manuscript correlations agree'
+    check(name,not errors,errors)
 
 
-def audit_q():
+def audit_q(with_manuscript=False):
     d = q_coordinates()
     check('Q: 108 main-arm coordinates on the declared nine seeds',
           grid(d,['target','seed','method'],[DOMAINS,SEEDS,('q_expert_median_inductive','source_erm','native78')]))
@@ -187,19 +191,20 @@ def audit_q():
             bad.append(f'{target}/{seed}')
     check('Q: all 36 pairing and prediction-sealing manifests agree',not bad,bad)
     p = q_pairs()
-    tex = (PAPER/'main.tex').read_text(encoding='utf-8')
-    block = tex.split(r'\label{tab:matched_experts}',1)[1].split(r'\end{table}',1)[0]
-    errors = []
-    for target in DOMAINS:
-        row = re.search(rf'(?mi)^{target}\s*&(.+)$',block)
-        z = p.loc[target]
-        delta = z.q_expert_median_inductive-z.native78
-        expected = [z.q_expert_median_inductive.mean(),z.q_expert_median_inductive.std(),
-                    z.native78.mean(),z.native78.std(),delta.mean(),delta.std()]
-        actual = re.findall(r'[-+]?\d+\.\d+',row[1]) if row else []
-        if len(actual)!=6 or [f'{float(v):.3f}' for v in actual]!=[f'{v:.3f}' for v in expected]:
-            errors.append(target)
-    check('Q: all matched-expert means and paired SDs use one-step three-decimal rounding',not errors,errors)
+    if with_manuscript:
+        tex = (PAPER/'main.tex').read_text(encoding='utf-8')
+        block = tex.split(r'\label{tab:matched_experts}',1)[1].split(r'\end{table}',1)[0]
+        errors = []
+        for target in DOMAINS:
+            row = re.search(rf'(?mi)^{target}\s*&(.+)$',block)
+            z = p.loc[target]
+            delta = z.q_expert_median_inductive-z.native78
+            expected = [z.q_expert_median_inductive.mean(),z.q_expert_median_inductive.std(),
+                        z.native78.mean(),z.native78.std(),delta.mean(),delta.std()]
+            actual = re.findall(r'[-+]?\d+\.\d+',row[1]) if row else []
+            if len(actual)!=6 or [f'{float(v):.3f}' for v in actual]!=[f'{v:.3f}' for v in expected]:
+                errors.append(target)
+        check('Q: all matched-expert means and paired SDs use one-step three-decimal rounding',not errors,errors)
     delta = (p.q_expert_median_inductive-p.source_erm).groupby('target').mean()
     check('Q: improvement on three domains and negative ToN transfer',
           (delta.loc[['unsw','cic','bot']]>0).all() and delta.loc['ton']<0)
@@ -290,6 +295,16 @@ def audit_files():
     essential = [r for r in freeze['copied_files'] if not r['path'].endswith('.md')]
     check('Deployment: original frozen evidence hashes remain intact',
           all((DEPLOY/r['path']).is_file() and sha(DEPLOY/r['path'])==r['sha256'] for r in essential))
+    failures = []
+    for p in (ROOT/'CODE').rglob('*.py'):
+        try: ast.parse(p.read_text(encoding='utf-8'),filename=str(p))
+        except SyntaxError as e: failures.append(f'{p.relative_to(ROOT)}:{e.lineno}: {e.msg}')
+    check('Code: every Python source parses',not failures,failures)
+    from CODE.run_paper import COMMANDS
+    check('CLI: every advertised entry point exists',all((ROOT/p).is_file() for p,_ in COMMANDS.values()))
+
+
+def audit_manuscript_files():
     tex = (PAPER/'main.tex').read_text(encoding='utf-8')
     tex = re.sub(r'(?<!\\)%[^\n]*', '', tex)
     paths = re.findall(r'\\input\{([^}]+)\}',tex)
@@ -322,24 +337,28 @@ def audit_files():
     bib = (PAPER/'cas-refs.bib').read_text(encoding='utf-8')
     entries = re.findall(r'@\w+\s*\{\s*([^,\s]+)',bib)
     check('Manuscript: bibliography keys unique and all citations resolve',len(entries)==len(set(entries)) and keys<=set(entries),{'citations':len(keys),'missing':sorted(keys-set(entries))})
-    failures = []
-    for p in (ROOT/'CODE').rglob('*.py'):
-        try: ast.parse(p.read_text(encoding='utf-8'),filename=str(p))
-        except SyntaxError as e: failures.append(f'{p.relative_to(ROOT)}:{e.lineno}: {e.msg}')
-    check('Code: every Python source parses',not failures,failures)
-    from CODE.run_paper import COMMANDS
-    check('CLI: every advertised entry point exists',all((ROOT/p).is_file() for p,_ in COMMANDS.values()))
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,default=ROOT/'RESULTS/reruns/submission_checks/audit.json')
+    p.add_argument('--with-manuscript',action='store_true',
+                   help='Also check local paper/main.tex, bibliography and figure assets (not distributed).')
     args = p.parse_args()
-    for fn in (audit_rq1,audit_rq2,audit_q,audit_staircase,audit_deployment,audit_sensitivity,audit_files):
-        try: fn()
+    if args.with_manuscript and not (PAPER/'main.tex').is_file():
+        p.error('--with-manuscript requires a local paper/main.tex; the manuscript is not distributed.')
+    functions = [audit_rq1,audit_rq2,audit_q,audit_staircase,audit_deployment,audit_sensitivity,audit_files]
+    if args.with_manuscript:
+        functions.append(audit_manuscript_files)
+    for fn in functions:
+        try:
+            if fn in (audit_rq2,audit_q):
+                fn(with_manuscript=args.with_manuscript)
+            else:
+                fn()
         except Exception as e: check(fn.__name__,False,f'{type(e).__name__}: {e}')
     passed = all(c['passed'] for c in CHECKS)
     result = dict(passed=passed,checks=CHECKS,
-        scope='Compact archived evidence and manuscript consistency',
+        scope='Compact archived evidence' + (' and local manuscript consistency' if args.with_manuscript else ''),
         known_limits=['Legacy deployment false_alerts_per_million_* fields mean per million benign; legacy v5 group operating fields contain worst-source row thresholds. The paper uses verified row FPR/TPR and all-flow alert burden only.',
                      'Sampling/calibration sensitivity materials comprise archived coordinates, integrity hashes and table derivation.'])
     args.output.parent.mkdir(parents=True,exist_ok=True)

@@ -3,7 +3,6 @@
 Research code and archived evidence for **Reliability of Cross-Domain Network
 Intrusion Detection**, by MingZheng Liu, Yiyang Fu, Saru Kumari, and Chien-Ming Chen.
 
-[LaTeX source](paper/main.tex) ·
 [Repository](https://github.com/mingzhengliu-lab/cross-domain-nids-reliability)
 
 ## What this study evaluates
@@ -38,15 +37,19 @@ python -m venv .venv
 # Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -r requirements-analysis.txt
 python CODE/run_paper.py audit
-python CODE/run_paper.py check-manuscript
 ```
 
 `audit` verifies the archived coordinate grids, paired seeds, aggregation,
-split-isolation records, operating criteria, figure hashes, and references.
-`check-manuscript` independently recomputes numerical table entries and headline
-statistics against the English manuscript. Reports are written to
-`RESULTS/reruns/submission_checks/` and `RESULTS/reruns/manuscript_checks/`.
-These commands validate supplied evidence; they do not retrain the models.
+split-isolation records, operating criteria, and evidence hashes. Reports are
+written to `RESULTS/reruns/submission_checks/`. It requires only the distributed
+code and archived results; it does not retrain the models.
+
+The manuscript, bibliography, template, and figure assets in the local `paper/`
+directory are not distributed with this repository. If those files are available
+locally, `python CODE/run_paper.py audit --with-manuscript` additionally checks
+their consistency and hashes. `python CODE/run_paper.py check-manuscript --project
+/path/to/paper` checks numerical table entries and headline statistics against
+`main.tex`, with reports under `RESULTS/reruns/manuscript_checks/`.
 
 ## Repository map
 
@@ -55,11 +58,9 @@ These commands validate supplied evidence; they do not retrain the models.
 | `CODE/` | Experiment runners, preprocessing, aggregation, plotting, and verification |
 | `RESULTS_PAPER/` | Compact frozen metrics, per-seed records, and provenance |
 | `DATA/nfv2_processed/` | Feature definitions, row indices, duplicate-group keys, and fixed splits |
-| `paper/` | Current English LaTeX manuscript, bibliography, figures, and required CAS template files |
-| `paper/figs/` | Nine vector PDFs and nine SVG sources |
 | `CODE/figures/` | Numerical figure generation from the archived experiment records |
 
-`RESULTS/` is a local output directory excluded from Git. Raw traffic, model
+`RESULTS/` and `paper/` are local directories excluded from Git. Raw traffic, model
 checkpoints, virtual environments, and local verification outputs are not part
 of the release. The fixed row indices, duplicate-group identifiers, and split
 files in `DATA/` are retained to reconstruct the experiment populations.
@@ -121,12 +122,11 @@ Use `--figures 5` to render only Figure 5, or `--png` to add preview images.
 | 8 | `RQ3_target_information_recovery/EXP08_s0_s3_staircase/staircase_metrics.csv` | S0-S3 target group AUROC, averaged over five support seeds at each target-budget cell |
 | 9 | `RQ4_ranking_vs_deployment/EXP09_deployment_operating_audit/coordinate_rows.csv` | Row-level FPR and TPR, averaged over seeds for each target-budget-mode condition |
 
-Figures 1-3 are conceptual diagrams; their editable SVG sources and exported
-PDFs are in `paper/figs/` and require no experiment data.
+Figures 1-3 are conceptual diagrams and require no experiment data. Their
+artwork is not distributed with this code release.
 
 `tables` writes eight supplementary LaTeX table summaries, two statistical
-summaries, and an input/output manifest to `RESULTS/reruns/tables/`. The current
-manuscript contains its tables inline; `check-manuscript` verifies their values.
+summaries, and an input/output manifest to `RESULTS/reruns/tables/`.
 Both generation commands accept `--output-dir` and keep outputs separate from
 `RESULTS_PAPER/`, `DATA/`, `CODE/`, and `paper/`. They do not replace the figures
 or text used by the manuscript.
@@ -311,8 +311,9 @@ python CODE/run_paper.py tables --results-root RESULTS/reruns/paper_results --ou
 `RESULTS/reruns/paper_results/`; it does not fill missing experiments with
 archived values. Figures 4–9 and the eight supplementary tables then use that
 tree. Per-seed records and RQ2/RQ3/RQ4 summaries provide the numerical inputs
-for the manuscript's inline tables. `audit` and `check-manuscript` continue to
-check the supplied published evidence.
+for the manuscript's inline tables. `audit` continues to check the supplied
+archived evidence. Manuscript comparison additionally requires the local
+manuscript files described above.
 
 All matrices support `--dry-run`. `--print-command` previews a `run_paper.py`
 dispatch without importing training dependencies. Individual runners expose
@@ -343,8 +344,8 @@ Two interpretation details matter when reusing the results:
 ## License and citation
 
 Project code and its documentation are released under the [MIT License](LICENSE).
-The manuscript, figure artwork, dataset-derived records, and Elsevier CAS files
-are not relicensed by that grant; see [third-party and non-code notices](THIRD_PARTY_NOTICES.md).
+Dataset-derived records are not relicensed by that grant; see
+[third-party and non-code notices](THIRD_PARTY_NOTICES.md).
 
 Please cite the manuscript when using this work. [CITATION.cff](CITATION.cff)
 provides its authors and the repository citation; no publication DOI is claimed.

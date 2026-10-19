@@ -25,6 +25,9 @@ __pycache__/
 Thumbs.db
 ~$*
 
+# Local manuscript (not distributed with the code release)
+/paper/
+
 # LaTeX build products
 paper/build/
 *.aux
